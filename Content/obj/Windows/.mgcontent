@@ -4,56 +4,56 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/Mario.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/crouch.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/player.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/Block.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/liten_pausescreen_test.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/liten_startscreen_test.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/play_knapp.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/play_looking_test.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/snow123.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/images.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/backButton.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/backButton_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/buyButton.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/buyButton_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/exitButton.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/exitButton_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/leaveButton.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/leaveButton_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/playButton.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/playButton_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/resumeButton.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/resumeButton_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/shopButton.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/shopButton_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/upgradeButton.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/upgradeButton_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/title_screen_almost.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/BuyJump.spritefont</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/Forest-31.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/level-1.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/level-2.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/level-3.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/level-4.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/JUMP.wav</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/srort_block.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/Mario_runing.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/piggy.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/easy_button.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/easy_button_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/hard_button.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/hard_button_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/normal_button.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/normal_button_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/sonic_button.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/sonic_button_active.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/health.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/flygande_gren.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/game_over.png</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/level_one_texture.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/new_shop_screen.jpg</File>
-    <File>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/new_gameOver_screen.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/Mario.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/crouch.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/player.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/Block.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/liten_pausescreen_test.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/liten_startscreen_test.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/play_knapp.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/play_looking_test.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/snow123.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/images.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/backButton.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/backButton_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/buyButton.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/buyButton_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/exitButton.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/exitButton_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/leaveButton.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/leaveButton_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/playButton.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/playButton_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/resumeButton.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/resumeButton_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/shopButton.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/shopButton_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/upgradeButton.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/upgradeButton_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/title_screen_almost.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/BuyJump.spritefont</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/Forest-31.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/level-1.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/level-2.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/level-3.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/level-4.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/JUMP.wav</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/srort_block.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/Mario_runing.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/piggy.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/easy_button.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/easy_button_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/hard_button.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/hard_button_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/normal_button.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/normal_button_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/sonic_button.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/sonic_button_active.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/health.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/flygande_gren.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/game_over.png</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/level_one_texture.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/new_shop_screen.jpg</File>
+    <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/new_gameOver_screen.jpg</File>
   </SourceFiles>
 </SourceFileCollection>

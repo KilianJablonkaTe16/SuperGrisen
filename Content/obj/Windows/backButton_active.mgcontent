@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/backButton_active.jpg</SourceFile>
-  <SourceTime>2018-05-09T16:01:17.6627952+02:00</SourceTime>
-  <DestFile>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/bin/Windows/backButton_active.xnb</DestFile>
-  <DestTime>2018-05-10T09:33:34.3576372+02:00</DestTime>
+  <SourceFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/backButton_active.jpg</SourceFile>
+  <SourceTime>2018-05-14T13:50:57.6214648+02:00</SourceTime>
+  <DestFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/bin/Windows/backButton_active.xnb</DestFile>
+  <DestTime>2018-05-14T13:51:33.4066307+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

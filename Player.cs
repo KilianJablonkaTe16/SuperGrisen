@@ -19,7 +19,7 @@ namespace SpringandeGris
        public Vector2 position, velocity, gravity;
        float rotation, sonicSpeed;
        public float jumpHeight;
-       public int health = 3;
+        public int health;
        KeyboardState nowbuttonpressed,lastbuttonpressed;
        public bool ärodödlig = true;
        public int timer;

@@ -31,12 +31,9 @@ namespace SpringandeGris
 
                 positionx += groundBlockTexture.Width;
             }
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(2000, 540)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(2500, 270)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(3000, 540)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(3500, 540)));
+           
 
-            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(4500, 810 - damageBlockTexture.Height)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(1000, 810 - damageBlockTexture.Height)));
         }
 
 
@@ -94,7 +91,7 @@ namespace SpringandeGris
                 return Gamestates.pausemenu;
             }
 
-            if (player.health <= 0)
+            if (player.health == 0)
             {
                 return Gamestates.gameOverMenu;
             }

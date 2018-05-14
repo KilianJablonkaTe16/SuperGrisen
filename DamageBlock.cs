@@ -26,11 +26,15 @@ namespace SpringandeGris
             {
                 player.harhoppat = false;
                 player.position.Y = ObjectHitbox.Location.Y - player.texture.Height;
+
                 if (player.ärodödlig == false)
                 {
                     //Playern tar 1 damage
                     player.health--;
-                    player.timer = 1000;
+                    //Timern till hur länge man är odödlig sätts till fem sekunder
+                    player.timer = 5000;
+                    //Sätter så att man är odödlig
+                    player.ärodödlig = true;
                 }
             }
 
@@ -44,7 +48,8 @@ namespace SpringandeGris
                 {
                     //Playern tar 1 damage
                     player.health--;
-                    player.timer = 1000;
+                    player.timer = 5000;
+                    player.ärodödlig = true;
                 }
             }
 
@@ -53,17 +58,20 @@ namespace SpringandeGris
             {
 
                 player.position.X = ObjectHitbox.Location.X - player.PlayerHitbox.Width;
-                player.harhoppat = true;
+                
                 //Playern tar 1 damage;
                 if (player.ärodödlig == false)
                 {
                     player.health--;
-                }
-                if (player.ärodödlig == false)
-                {
                     player.timer = 5000;
+                    player.ärodödlig = true;
                 }
-
+              
+                
+                 
+                    
+              
+                
             }
 
 
@@ -74,7 +82,9 @@ namespace SpringandeGris
                 player.health--;
                 if (player.ärodödlig == false)
                 {
-                    player.timer = 1000;
+                    player.health--;
+                    player.timer = 5000;
+                    player.ärodödlig = true;
                 }
 
             }

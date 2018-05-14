@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/hard_button.jpg</SourceFile>
-  <SourceTime>2018-05-03T10:19:41.9140667+02:00</SourceTime>
-  <DestFile>C:/Users/kilian.jablonka/Documents/Visual Studio 2015/Projects/Super_grisen_utan_guthub/Content/bin/Windows/hard_button.xnb</DestFile>
-  <DestTime>2018-05-11T13:51:30.0760143+02:00</DestTime>
+  <SourceFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/hard_button.jpg</SourceFile>
+  <SourceTime>2018-05-14T13:50:58.1379145+02:00</SourceTime>
+  <DestFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/bin/Windows/hard_button.xnb</DestFile>
+  <DestTime>2018-05-14T13:51:36.0677863+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
