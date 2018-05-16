@@ -34,8 +34,10 @@ namespace SpringandeGris
                 {
                     //Playern tar 1 damage
                     player.health--;
+                    //Timern till hur länge man är odödlig sätts till fem sekunder
                     player.timer = 5000;
-
+                    //Sätter så att man är odödlig
+                    player.ärodödlig = true;
                 }
             }
 

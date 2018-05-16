@@ -23,7 +23,7 @@ namespace SpringandeGris
        KeyboardState nowbuttonpressed,lastbuttonpressed;
        public bool ärodödlig = true;
        public int timer;
-       public int munkar = 0;
+       public int munkar = 100;
        int xPosition = 0;
 
 

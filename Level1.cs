@@ -15,14 +15,16 @@ namespace SpringandeGris
         
         static int  timer = 300;
         int positionx = 0;
+        int positionx2 = 6600;
         List<ObjektBasklassen> groundBlocks = new List<ObjektBasklassen>();
         List<FlyingObjects> flyingObjects = new List<FlyingObjects>();
         List<DamageBlock>  damageBlocks = new List<DamageBlock>();
+        List<MunkarPoäng> munkar = new List<MunkarPoäng>();
 
-        public Level1(Player  player, Texture2D groundBlockTexture, Texture2D damageBlockTexture)
+        public Level1(Player  player, Texture2D groundBlockTexture, Texture2D damageBlockTexture, Texture2D munkTexture)
         {
            
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 10; i++)
             {
 
                 //Game1.Objekten.Add(new Block(Game1.objectSprite, new Vector2(player.position.X + Game1.rng.Next(100,10000), Game1.rng.Next(Convert.ToInt32(player.position.X) + player.PlayerHitbox.Height - 50, Convert.ToInt32(player.position.X) + player.PlayerHitbox.Height + 50))));
@@ -34,6 +36,27 @@ namespace SpringandeGris
            
 
             damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(1000, 810 - damageBlockTexture.Height)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(1600, 810 - damageBlockTexture.Height)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(2200, 810 - damageBlockTexture.Height)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(2800, 810 - damageBlockTexture.Height)));
+
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(3300, 810)));
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(4000, 810)));
+            munkar.Add(new MunkarPoäng(munkTexture, new Vector2(4250, 500)));
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(4600, 810)));
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(5200, 600)));
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(5900, 600)));
+
+            
+
+            for (int i = 0; i < 100; i++)
+            {
+
+                groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(positionx2, 810)));
+                
+                positionx2 += groundBlockTexture.Width;
+            }
+
         }
 
 
@@ -48,7 +71,7 @@ namespace SpringandeGris
             //Annars så tar den timerns värde minus hur lång tid som har gått.
             if (timer < 0)
             {
-                flyingObjects.Add(new FlyingObjects(Game1.flyingsprite, new Vector2(3000, Game1.rng.Next(100, 300))));
+                flyingObjects.Add(new FlyingObjects(Game1.flyingsprite, new Vector2(10000, Game1.rng.Next(100, 600))));
                 timer = Game1.rng.Next(3000, 4000);
             }
             else
@@ -79,6 +102,10 @@ namespace SpringandeGris
             foreach (DamageBlock damageObjekt in damageBlocks)
             {
                 damageObjekt.Update(player, gameTime);
+            }
+            foreach (MunkarPoäng Munkar in munkar)
+            {
+                Munkar.Update(player, gameTime);
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.R))
@@ -117,6 +144,12 @@ namespace SpringandeGris
             {
                 damageObjekt.Draw(spriteBatch);
             }
+            foreach(MunkarPoäng Munkar in munkar)
+            {
+                Munkar.Draw(spriteBatch);
+            }
+
+        
         }
 
         public void ResetLevel()

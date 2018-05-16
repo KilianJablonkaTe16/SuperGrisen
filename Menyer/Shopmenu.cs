@@ -11,7 +11,7 @@ namespace SpringandeGris
 {
     class Shopmenu:SuperMenu
     {
-        protected int munkar = 100, upgradeHealht;
+        protected int shopMunkar, upgradeHealth;
 
         //Konstruktorn
         public Shopmenu(Texture2D shopmenuTexture, Texture2D buyButton, Texture2D buyButtonActive, Texture2D backButton, Texture2D backButtonActive)
@@ -24,8 +24,9 @@ namespace SpringandeGris
         public Gamestates Update(Player player)
         {
             // Vad metoden gör beskirvs i SuperMenus.
-            upgradeHealht = player.health;
+            upgradeHealth = player.health;
             GettingNewValues();
+            shopMunkar = player.munkar;
 
             if (Keyboard.GetState().IsKeyDown(Keys.Down) || Keyboard.GetState().IsKeyDown(Keys.Up))
             {
@@ -53,13 +54,13 @@ namespace SpringandeGris
                         return Gamestates.startmenu;
                     }
 
-                    if(munkar != 0)
+                    if(shopMunkar != 0)
                     {
                         if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton && lastMouseState != nowMouseState && lastMouseState.Position == nowMouseState.Position)
                         {
                             player.health++;
-                            munkar -= 50;
-                            upgradeHealht++;
+                            player.munkar -= 50;
+                            upgradeHealth++;
                         }
                     }
 
@@ -96,13 +97,13 @@ namespace SpringandeGris
 
                 buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
             }
-            if(munkar != 0)
+            if(shopMunkar != 0)
             {
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0 && lastButtonState != nowButtonState)
                 {
                     player.health++;
-                    munkar -= 50;
-                    upgradeHealht++;
+                    player.munkar -= 50;
+                    upgradeHealth++;
                 }
             }
             // Nedan ändras gamstatsen beroende på vilken knapp man "aktiverar"
@@ -130,8 +131,8 @@ namespace SpringandeGris
             {
                 pauseButton.Draw(spriteBatch);
             }
-            spriteBatch.DrawString(buyJump, "Munkar: " + munkar.ToString(), new Vector2(500, 200), Color.White);
-            spriteBatch.DrawString(buyJump, "Health: " + upgradeHealht.ToString(), new Vector2(500, 320), Color.White);
+            spriteBatch.DrawString(buyJump, "Munkar: " + shopMunkar.ToString(), new Vector2(500, 200), Color.White);
+            spriteBatch.DrawString(buyJump, "Health: " + upgradeHealth.ToString(), new Vector2(500, 320), Color.White);
         }
 
     }

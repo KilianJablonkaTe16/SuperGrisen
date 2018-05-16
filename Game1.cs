@@ -23,7 +23,7 @@ namespace SpringandeGris
     public class Game1 : Game
     {
         SoundEffect effect;
-        //Samuel har gjort game
+        
 
         Gamestates gamestates = new Gamestates();
 
@@ -35,10 +35,10 @@ namespace SpringandeGris
         public static Random rng = new Random();
 
 
-        public static Texture2D background, startmenuTexture, pausemenuTexture, shopmenuTexture, playButton, playButtonActive, shopButton, 
-                  shopButtonActive, exitButton, exitButtonActive, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive, 
-                  buyButton, buyButtonActive, backButton, backButtonActive, flyingsprite, level1Texture, level2Texture, 
-                  level3Texture, level4Texture, damagesprite, groundBlockTexture,munkSprite, levelmenuBackground, level1ZoomTexture, 
+        public static Texture2D background, startmenuTexture, pausemenuTexture, shopmenuTexture, playButton, playButtonActive, shopButton,
+                  shopButtonActive, exitButton, exitButtonActive, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive,
+                  buyButton, buyButtonActive, backButton, backButtonActive, flyingsprite, level1Texture, level2Texture,
+                  level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture,
                   playerSprite, healthTexture, levelOneTexture;
 
         Vector2 backgroundTest;
@@ -94,7 +94,7 @@ namespace SpringandeGris
             groundBlockTexture = Content.Load<Texture2D>("srort_block");
             damagesprite = Content.Load<Texture2D>("Mario_runing");
             background = Content.Load<Texture2D>("Forest-31");
-            munkSprite = Content.Load<Texture2D>("snow123");
+            munkSprite = Content.Load<Texture2D>("munk");
             backgroundWidth = background.Width;
             backgroundTest = new Vector2(0, 0);
 
@@ -174,9 +174,10 @@ namespace SpringandeGris
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            lvl1 = new Level1(player, groundBlockTexture, damagesprite);
+            lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite);
 
             effect = Content.Load<SoundEffect>("JUMP");
+            
 
           
           
@@ -252,7 +253,7 @@ namespace SpringandeGris
 
                 if (gamestates == Gamestates.startmenu)
                 {
-                    lvl1 = new Level1(player, groundBlockTexture, damagesprite);
+                    lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite);
                     player = new Player(playerSprite, playerSprite, healthTexture);
                 }
             }
@@ -267,7 +268,7 @@ namespace SpringandeGris
 
             if (gamestates == Gamestates.gameOverMenu)
             {
-                lvl1 = new Level1(player, groundBlockTexture, damagesprite);
+                lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite);
                 player = new Player(playerSprite, playerSprite, healthTexture);
                 IsMouseVisible = true;
                 gamestates = gameOverMenu.Update(player);
