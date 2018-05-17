@@ -4,6 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+<<<<<<< HEAD
     <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/Mario.png</File>
     <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/crouch.png</File>
     <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/player.png</File>
@@ -57,5 +58,60 @@
     <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/new_gameOver_screen.jpg</File>
     <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/munk.jpg</File>
     <File>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/GREN.png</File>
+=======
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/Mario.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/crouch.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/player.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/Block.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/liten_pausescreen_test.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/liten_startscreen_test.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/play_knapp.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/play_looking_test.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/snow123.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/images.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/backButton.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/backButton_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/buyButton.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/buyButton_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/exitButton.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/exitButton_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/leaveButton.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/leaveButton_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/playButton.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/playButton_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/resumeButton.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/resumeButton_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/shopButton.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/shopButton_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/upgradeButton.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/upgradeButton_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/title_screen_almost.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/BuyJump.spritefont</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/Forest-31.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/level-1.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/level-2.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/level-3.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/level-4.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/JUMP.wav</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/srort_block.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/Mario_runing.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/piggy.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/easy_button.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/easy_button_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/hard_button.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/hard_button_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/normal_button.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/normal_button_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/sonic_button.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/sonic_button_active.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/health.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/flygande_gren.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/game_over.png</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/level_one_texture.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/new_shop_screen.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/new_gameOver_screen.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/munk.jpg</File>
+    <File>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/levelOne_active.jpg</File>
+>>>>>>> be6e3a986b3544b1dad3a63211320faa2e6376ce
   </SourceFiles>
 </SourceFileCollection>

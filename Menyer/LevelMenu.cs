@@ -11,14 +11,16 @@ namespace SpringandeGris
 {
     class LevelMenu:SuperMenu
     {
-        public LevelMenu(Texture2D levelmenyBackground,Texture2D levelOneTexture, Texture2D levelOneTextureActive, Texture2D backButton, Texture2D backButtonActive, Texture2D easyButton, Texture2D easyButtonActive, Texture2D normalButton, Texture2D normalButtonActive, Texture2D hardButton, Texture2D hardButtonActive, Texture2D sonicButton, Texture2D sonicButtonActive)
+        public LevelMenu(Texture2D playButton, Texture2D playButtonActive, Texture2D levelmenyBackground,Texture2D levelOneTexture, Texture2D levelOneTextureActive, Texture2D backButton, Texture2D backButtonActive, Texture2D easyButton, Texture2D easyButtonActive, Texture2D normalButton, Texture2D normalButtonActive, Texture2D hardButton, Texture2D hardButtonActive, Texture2D sonicButton, Texture2D sonicButtonActive)
         {
-            buttonLista.Add(new SuperButtons(easyButton, easyButtonActive, new Vector2(50, 150)));
-            buttonLista.Add(new SuperButtons(normalButton, normalButtonActive, new Vector2(50, 300)));
-            buttonLista.Add(new SuperButtons(hardButton, hardButtonActive, new Vector2(50, 450)));
-            buttonLista.Add(new SuperButtons(sonicButton, sonicButtonActive, new Vector2(50, 600)));
+            buttonLista.Add(new SuperButtons(playButton, playButtonActive, new Vector2(50, 200)));
 
-            buttonLista.Add(new SuperButtons(backButton, backButtonActive, new Vector2(50, 750)));
+            buttonLista.Add(new SuperButtons(easyButton, easyButtonActive, new Vector2(50, 350)));
+            buttonLista.Add(new SuperButtons(normalButton, normalButtonActive, new Vector2(50, 500)));
+            buttonLista.Add(new SuperButtons(hardButton, hardButtonActive, new Vector2(50, 650)));
+            buttonLista.Add(new SuperButtons(sonicButton, sonicButtonActive, new Vector2(50, 800)));
+
+            buttonLista.Add(new SuperButtons(backButton, backButtonActive, new Vector2(50, 950)));
 
             buttonLista.Add(new SuperButtons(levelOneTexture, levelOneTextureActive, new Vector2(500, 20)));
             buttonLista.Add(new SuperButtons(levelOneTexture, levelOneTextureActive, new Vector2(1200, 20)));
@@ -57,33 +59,38 @@ namespace SpringandeGris
                     //=================================================================================================================
                     if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
+                        return Gamestates.inGame;
+                    }
+
+                    if (buttonLista[1].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    {
                         player.velocity.X = 4;
                         player.jumpHeight = -18;
                         player.gravity.Y = 0.4f;
                     }
 
-                    if (buttonLista[1].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    if (buttonLista[2].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         player.velocity.X = 8;
                         player.jumpHeight = -21;
                         player.gravity.Y = 0.6f;
                     }
 
-                    if (buttonLista[2].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    if (buttonLista[3].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         player.velocity.X = 16;
                         player.jumpHeight = -24;
                         player.gravity.Y = 0.8f;
                     }
 
-                    if (buttonLista[3].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    if (buttonLista[4].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         player.velocity.X = 32;
                         player.jumpHeight = -28;
                         player.gravity.Y = 1f;
                     }
 
-                    if (buttonLista[4].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    if (buttonLista[5].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         return Gamestates.startmenu;
                     }
@@ -117,12 +124,12 @@ namespace SpringandeGris
                 buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
             }
 
-            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.down && valdKnapp <= 4 && gammalValdKnapp != -1)
+            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.down && valdKnapp <= 5 && gammalValdKnapp != -1)
             {
                 buttonLista[valdKnapp].Update(ButtonLook.normalButton);
                 valdKnapp++;
 
-                if (valdKnapp == 5)
+                if (valdKnapp == 6)
                     valdKnapp--;
 
                 buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
@@ -132,35 +139,39 @@ namespace SpringandeGris
 
             //Nedan ändras gamestates beroende på vilken knapp man "aktiverar". 
             #region Gamestate retunering
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0 && whichButtonPressed !=  0)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0 && whichButtonPressed != 0)
+            {
+                return Gamestates.inGame;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
             {
                 player.velocity.X = 4;
                 player.jumpHeight = -18;
                 player.gravity.Y = 0.4f;
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 2)
             {
                 player.velocity.X = 8;
                 player.jumpHeight = -21;
                 player.gravity.Y = 0.6f;
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 2)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 3)
             {
                 player.velocity.X = 16;
                 player.jumpHeight = -24;
                 player.gravity.Y = 0.8f;
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 3)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 4)
             {
                 player.velocity.X = 32;
                 player.jumpHeight = -28;
                 player.gravity.Y = 1f;
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 4)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 5)
             {
                 ResetingLevelMenuButtons();
                 return Gamestates.startmenu;
@@ -178,6 +189,7 @@ namespace SpringandeGris
 
         }
 
+        // En metod som resetar texturen av alla knappar och gör lite till.
         protected void ResetingLevelMenuButtons()
         {
             valdKnapp = -1;
@@ -187,6 +199,7 @@ namespace SpringandeGris
             buttonLista[2].Update(ButtonLook.normalButton);
             buttonLista[3].Update(ButtonLook.normalButton);
             buttonLista[4].Update(ButtonLook.normalButton);
+            buttonLista[5].Update(ButtonLook.normalButton);
         }
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/BuyJump.spritefont</SourceFile>
-  <SourceTime>2018-05-14T13:50:57.6059218+02:00</SourceTime>
-  <DestFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/bin/Windows/BuyJump.xnb</DestFile>
-  <DestTime>2018-05-14T13:51:34.6312183+02:00</DestTime>
+  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/BuyJump.spritefont</SourceFile>
+  <SourceTime>2018-05-09T16:01:17.6487549+02:00</SourceTime>
+  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/bin/Windows/BuyJump.xnb</DestFile>
+  <DestTime>2018-05-16T15:18:48.4116849+02:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/level-3.jpg</SourceFile>
-  <SourceTime>2018-05-14T13:50:58.1544611+02:00</SourceTime>
-  <DestFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/bin/Windows/level-3.xnb</DestFile>
-  <DestTime>2018-05-14T13:51:35.313077+02:00</DestTime>
+  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/level-3.jpg</SourceFile>
+  <SourceTime>2018-05-09T16:01:18.0024252+02:00</SourceTime>
+  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/bin/Windows/level-3.xnb</DestFile>
+  <DestTime>2018-05-16T15:18:49.0151936+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -39,7 +39,11 @@ namespace SpringandeGris
                   shopButtonActive, exitButton, exitButtonActive, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive,
                   buyButton, buyButtonActive, backButton, backButtonActive, flyingsprite, level1Texture, level2Texture,
                   level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture,
+<<<<<<< HEAD
                   playerSprite, healthTexture, levelOneTexture, grenSprite;
+=======
+                  playerSprite, healthTexture, levelOneTexture, levelOneTextureActive;
+>>>>>>> be6e3a986b3544b1dad3a63211320faa2e6376ce
 
         Vector2 backgroundTest;
         float backgroundWidth;
@@ -146,6 +150,7 @@ namespace SpringandeGris
             Texture2D sonicButtonActive = Content.Load<Texture2D>("sonic_button_active");
 
             levelOneTexture = Content.Load<Texture2D>("level_one_texture");
+            levelOneTextureActive = Content.Load<Texture2D>("levelOne_active");
 
             level2Texture = Content.Load<Texture2D>("level-2");
             level3Texture = Content.Load<Texture2D>("level-3");
@@ -157,7 +162,7 @@ namespace SpringandeGris
 
             startmenu = new Startmenu(startmenuTexture, playButton, playButtonActive, shopButton, shopButtonActive, exitButton, exitButtonActive);
             shopmenu = new Shopmenu(shopmenuTexture, buyButton, buyButtonActive, backButton, backButtonActive);
-            levelMenu = new LevelMenu(levelmenuBackground, levelOneTexture, levelOneTexture, backButton, backButtonActive, easyButton, easyButtonActive, normalButton, normalButtonActive, hardButton, hardButtonActive, sonicButton, sonicButtonActive);
+            levelMenu = new LevelMenu(playButton, playButtonActive, levelmenuBackground, levelOneTexture, levelOneTextureActive, backButton, backButtonActive, easyButton, easyButtonActive, normalButton, normalButtonActive, hardButton, hardButtonActive, sonicButton, sonicButtonActive);
             pausemenu = new Pausemenu(pausemenuTexture, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive);
             player = new Player(playerSprite, playerCrouch, healthTexture);
             gameOverMenu = new GameOverMenu(gameOverMenuTexture, backButton, backButtonActive, playButton, playButtonActive);
