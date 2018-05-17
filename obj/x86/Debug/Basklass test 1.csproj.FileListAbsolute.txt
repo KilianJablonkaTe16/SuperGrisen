@@ -228,6 +228,9 @@ C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\bin\Windows\x86\Debug\
 C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\obj\x86\Debug\Basklass test 1.csprojResolveAssemblyReference.cache
 C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\bin\Windows\x86\Debug\Content\munk.xnb
+<<<<<<< HEAD
+C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\bin\Windows\x86\Debug\Content\GREN.xnb
+=======
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen\obj\x86\Debug\SpringandeGris.exe
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen\obj\x86\Debug\SpringandeGris.pdb
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen\bin\Windows\x86\Debug\Content\flyingGrasBlock_100x30.xnb
@@ -311,3 +314,4 @@ C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen\bin\Windows\x86\Debug\Sha
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen\obj\x86\Debug\Basklass test 1.csprojResolveAssemblyReference.cache
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen\bin\Windows\x86\Debug\Content\levelOne_active.xnb
+>>>>>>> be6e3a986b3544b1dad3a63211320faa2e6376ce

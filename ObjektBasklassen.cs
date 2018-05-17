@@ -43,19 +43,6 @@ namespace SpringandeGris
             }
         }
 
-        public Rectangle DirectionBlockHitbox
-        {
-            get
-            {
-                Rectangle objecthitbox = new Rectangle();
-                objecthitbox.Location = position.ToPoint();
-
-                objecthitbox.Width = texture.Width;
-                objecthitbox.Height = texture.Height;
-
-                return objecthitbox;
-            }
-        }
 
 
         public virtual void Update(Player player, GameTime gameTime)
