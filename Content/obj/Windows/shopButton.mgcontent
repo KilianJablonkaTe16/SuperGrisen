@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/shopButton.jpg</SourceFile>
-  <SourceTime>2018-05-14T13:50:58.2770331+02:00</SourceTime>
-  <DestFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/bin/Windows/shopButton.xnb</DestFile>
-  <DestTime>2018-05-14T13:51:33.7380203+02:00</DestTime>
+  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/shopButton.jpg</SourceFile>
+  <SourceTime>2018-05-09T16:01:18.0798478+02:00</SourceTime>
+  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/bin/Windows/shopButton.xnb</DestFile>
+  <DestTime>2018-05-16T15:18:47.6335348+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

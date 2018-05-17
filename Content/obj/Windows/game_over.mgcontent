@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/game_over.png</SourceFile>
-  <SourceTime>2018-05-14T13:50:58.1349077+02:00</SourceTime>
-  <DestFile>C:/Users/samuel.karlssonsabz/Documents/GitHub/SuperGrisen/Content/bin/Windows/game_over.xnb</DestFile>
-  <DestTime>2018-05-14T13:51:36.3149497+02:00</DestTime>
+  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/game_over.png</SourceFile>
+  <SourceTime>2018-05-11T19:05:13.9597186+02:00</SourceTime>
+  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/bin/Windows/game_over.xnb</DestFile>
+  <DestTime>2018-05-16T15:18:49.8904892+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
