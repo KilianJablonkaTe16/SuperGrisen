@@ -228,3 +228,4 @@ C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\bin\Windows\x86\Debug\
 C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\obj\x86\Debug\Basklass test 1.csprojResolveAssemblyReference.cache
 C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\bin\Windows\x86\Debug\Content\munk.xnb
+C:\Users\samuel.karlssonsabz\Documents\GitHub\SuperGrisen\bin\Windows\x86\Debug\Content\GREN.xnb

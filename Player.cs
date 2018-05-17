@@ -61,6 +61,16 @@ namespace SpringandeGris
 
         public void Update(GameTime gametime, SoundEffect effect)
         {
+
+            if(position.Y >= 1400)
+            {
+
+                health = 0;
+            }
+
+
+
+
             if (timer <= 0)
             {
                 ärodödlig = false;

@@ -14,17 +14,25 @@ namespace SpringandeGris
     {
         
         static int  timer = 300;
+
+        //Variabel som används för att kunna lägga blocksen/golvet exakt bredvid varandra
         int positionx = 0;
-        int positionx2 = 6600;
+        int positionx2 = 8100;
+
+
+        //Listor för alla objekt
         List<ObjektBasklassen> groundBlocks = new List<ObjektBasklassen>();
         List<FlyingObjects> flyingObjects = new List<FlyingObjects>();
         List<DamageBlock>  damageBlocks = new List<DamageBlock>();
         List<MunkarPoäng> munkar = new List<MunkarPoäng>();
+        List<Gren> grenar = new List<Gren>();
 
-        public Level1(Player  player, Texture2D groundBlockTexture, Texture2D damageBlockTexture, Texture2D munkTexture)
+
+        //Hela banan
+        public Level1(Player  player, Texture2D groundBlockTexture, Texture2D damageBlockTexture, Texture2D munkTexture, Texture2D grenTexture)
         {
            
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 15; i++)
             {
 
                 //Game1.Objekten.Add(new Block(Game1.objectSprite, new Vector2(player.position.X + Game1.rng.Next(100,10000), Game1.rng.Next(Convert.ToInt32(player.position.X) + player.PlayerHitbox.Height - 50, Convert.ToInt32(player.position.X) + player.PlayerHitbox.Height + 50))));
@@ -33,21 +41,30 @@ namespace SpringandeGris
 
                 positionx += groundBlockTexture.Width;
             }
-           
 
-            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(1000, 810 - damageBlockTexture.Height)));
-            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(1600, 810 - damageBlockTexture.Height)));
-            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(2200, 810 - damageBlockTexture.Height)));
-            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(2800, 810 - damageBlockTexture.Height)));
 
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(3300, 810)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(4000, 810)));
-            munkar.Add(new MunkarPoäng(munkTexture, new Vector2(4250, 500)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(4600, 810)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(5200, 600)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(5900, 600)));
+            grenar.Add(new Gren(grenTexture, new Vector2(1000, 625)));
+            grenar.Add(new Gren(grenTexture, new Vector2(1500, 625)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(2500, 810 - damageBlockTexture.Height)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(3100, 810 - damageBlockTexture.Height)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(3700, 810 - damageBlockTexture.Height)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(4300, 810 - damageBlockTexture.Height)));
 
-            
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(4800, 810)));
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(5500, 810)));
+            munkar.Add(new MunkarPoäng(munkTexture, new Vector2(5750, 500)));
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(6100, 810)));
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(6700, 600)));
+            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(7400, 600)));
+            grenar.Add(new Gren(grenTexture, new Vector2(7800, 400)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(8400, 810 - damageBlockTexture.Height)));
+            grenar.Add(new Gren(grenTexture, new Vector2(8800, 500)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(8800 + (damageBlockTexture.Width/2)/2, 500 - damageBlockTexture.Height)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(9200, 810 - damageBlockTexture.Height)));
+            damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(9700, 810 - damageBlockTexture.Height)));
+            grenar.Add(new Gren(grenTexture, new Vector2(9700 - (grenTexture.Width/2)/2 , (810 - damageBlockTexture.Height) - grenTexture.Height)));
+
+
 
             for (int i = 0; i < 100; i++)
             {
@@ -71,7 +88,7 @@ namespace SpringandeGris
             //Annars så tar den timerns värde minus hur lång tid som har gått.
             if (timer < 0)
             {
-                flyingObjects.Add(new FlyingObjects(Game1.flyingsprite, new Vector2(10000, Game1.rng.Next(100, 600))));
+                flyingObjects.Add(new FlyingObjects(Game1.flyingsprite, new Vector2(15000, Game1.rng.Next(50, 650))));
                 timer = Game1.rng.Next(3000, 4000);
             }
             else
@@ -80,16 +97,17 @@ namespace SpringandeGris
             }
 
 
+            //<---- Uppdaterar alla objekt genom att gå igenom alla listor av objekten ---->
             foreach (ObjektBasklassen objekten in groundBlocks)
             {
                 objekten.Update(player, gameTime);
-                objekten.CheckHitboxes(objekten.DirectionBlockHitbox, player);
+                objekten.CheckHitboxes(objekten.ObjectHitbox, player);
             }
 
             foreach (FlyingObjects flygandeObjekten in flyingObjects)
             {
                 flygandeObjekten.Update(player, gameTime);
-                flygandeObjekten.CheckHitboxes(flygandeObjekten.DirectionBlockHitbox, player);
+                flygandeObjekten.CheckHitboxes(flygandeObjekten.ObjectHitbox, player);
             }
 
             foreach (FlyingObjects flygandeObjekten in flyingObjects)
@@ -102,10 +120,16 @@ namespace SpringandeGris
             foreach (DamageBlock damageObjekt in damageBlocks)
             {
                 damageObjekt.Update(player, gameTime);
+                damageObjekt.CheckHitboxes(damageObjekt.ObjectHitbox, player);
             }
             foreach (MunkarPoäng Munkar in munkar)
             {
                 Munkar.Update(player, gameTime);
+            }
+            foreach (Gren gren in grenar)
+            {
+                gren.Update(player, gameTime);
+                gren.CheckHitboxes(gren.ObjectHitbox, player);
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.R))
@@ -130,6 +154,7 @@ namespace SpringandeGris
 
         }
 
+        // <---- Ritar ut alla objekt genom att gå igenom alla listor med dem i ---- >
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (ObjektBasklassen objekten in groundBlocks)
@@ -148,6 +173,11 @@ namespace SpringandeGris
             {
                 Munkar.Draw(spriteBatch);
             }
+            foreach(Gren Grenar in grenar)
+            {
+                Grenar.Draw(spriteBatch);
+            }
+
 
         
         }

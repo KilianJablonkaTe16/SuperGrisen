@@ -39,7 +39,7 @@ namespace SpringandeGris
                   shopButtonActive, exitButton, exitButtonActive, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive,
                   buyButton, buyButtonActive, backButton, backButtonActive, flyingsprite, level1Texture, level2Texture,
                   level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture,
-                  playerSprite, healthTexture, levelOneTexture;
+                  playerSprite, healthTexture, levelOneTexture, grenSprite;
 
         Vector2 backgroundTest;
         float backgroundWidth;
@@ -89,7 +89,7 @@ namespace SpringandeGris
             playerSprite = Content.Load<Texture2D>("piggy");
             Texture2D playerCrouch = Content.Load<Texture2D>("Crouch");
             healthTexture = Content.Load<Texture2D>("health");
-
+            grenSprite = Content.Load<Texture2D>("GREN");
             flyingsprite = Content.Load<Texture2D>("flygande_gren");
             groundBlockTexture = Content.Load<Texture2D>("srort_block");
             damagesprite = Content.Load<Texture2D>("Mario_runing");
@@ -174,7 +174,7 @@ namespace SpringandeGris
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite);
+            lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
 
             effect = Content.Load<SoundEffect>("JUMP");
             
@@ -253,7 +253,7 @@ namespace SpringandeGris
 
                 if (gamestates == Gamestates.startmenu)
                 {
-                    lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite);
+                    lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
                     player = new Player(playerSprite, playerSprite, healthTexture);
                 }
             }
@@ -268,7 +268,7 @@ namespace SpringandeGris
 
             if (gamestates == Gamestates.gameOverMenu)
             {
-                lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite);
+                lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
                 player = new Player(playerSprite, playerSprite, healthTexture);
                 IsMouseVisible = true;
                 gamestates = gameOverMenu.Update(player);
