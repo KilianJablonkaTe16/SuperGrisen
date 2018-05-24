@@ -14,9 +14,11 @@ namespace SpringandeGris
     public enum Hitboxes { Left, Right, Up, Down }
     public class ObjektBasklassen
     {
-        protected Vector2 position, oldposition, velocity;
+        protected Vector2 position, velocity;
         protected Texture2D texture;
+        //Instans av hitboxes
         protected Hitboxes hitboxes;
+        //När den blir true så ska objektet tas bort från listan(Funkar ej)
         public bool removeMe = false;
 
         public ObjektBasklassen(Texture2D texture)
@@ -29,6 +31,8 @@ namespace SpringandeGris
             spriteBatch.Draw(texture, position, Color.White);
         }
 
+
+        //Skapar hitbox som alla andra subklasser kommer ärva utav.
         public Rectangle ObjectHitbox
         {
             get
@@ -47,8 +51,9 @@ namespace SpringandeGris
 
         public virtual void Update(Player player, GameTime gameTime)
         {
-
-            //Ändrar på playerns position när den träffar översidan av ett objekt
+            //Boolen (harhoppat) är en bool som sätts beroende på vilken sida man är på som t.ex.
+            //om man är uppe på ett objekt så sätts den till false och då kan playern fortfarande hoppa.
+            //<-- Ändrar på playerns position beroende på vilken sida av objekten playern befinner sig på -->
             if (ObjectHitbox.Intersects(player.PlayerHitbox) && hitboxes == Hitboxes.Up)
             {
                 player.position.Y = ObjectHitbox.Location.Y - player.texture.Height;
@@ -56,7 +61,7 @@ namespace SpringandeGris
                 player.harhoppat = false;
             }
 
-            //Ändrar på playerns position när den träffar undersidan av ett objekt
+            
             if (ObjectHitbox.Intersects(player.PlayerHitbox) && hitboxes == Hitboxes.Down)
             {
                 player.position.Y = ObjectHitbox.Location.Y + ObjectHitbox.Height + player.PlayerHitbox.Height;

@@ -28,9 +28,10 @@ namespace SpringandeGris
         {
             get { return GraphicsDeviceManager.DefaultBackBufferHeight; }
         }
-
+        
         public void Update(Vector2 playerPosition)
         {
+            //Sätter kamerans position till mitten av skärmen som utgår från playerns position.
             position.X = playerPosition.X - (ScreenWidth / 2);
           
 

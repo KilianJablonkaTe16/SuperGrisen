@@ -12,6 +12,7 @@ namespace SpringandeGris
 {
      class Level1
     {
+        //Samuel har gjort allt det här
         
         static int  timer = 300;
 
@@ -29,14 +30,14 @@ namespace SpringandeGris
         List<Gren> grenar = new List<Gren>();
 
 
-        //Hela banan
-        public Level1(Player  player, Texture2D groundBlockTexture, Texture2D damageBlockTexture, Texture2D munkTexture, Texture2D grenTexture)
+        //Hela banan som jag sätter ut steg för steg med alla objekt.
+        public Level1(Player  player, GameTime gameTime, Texture2D groundBlockTexture, Texture2D damageBlockTexture, Texture2D munkTexture, Texture2D grenTexture, Texture2D flyingObjectTexture)
         {
            
             for (int i = 0; i < 15; i++)
             {
 
-                //Game1.Objekten.Add(new Block(Game1.objectSprite, new Vector2(player.position.X + Game1.rng.Next(100,10000), Game1.rng.Next(Convert.ToInt32(player.position.X) + player.PlayerHitbox.Height - 50, Convert.ToInt32(player.position.X) + player.PlayerHitbox.Height + 50))));
+                
 
                 groundBlocks.Enqueue(new GroundBlock(groundBlockTexture, new Vector2(positionx, 810)));
 
@@ -75,6 +76,19 @@ namespace SpringandeGris
                 positionx2 += groundBlockTexture.Width;
             }
 
+            //Kollar när värdet på timer är mindre än 0 och då lägger ut blocks i random positioner
+            //Annars så tar den timerns värde minus hur lång tid som har gått.
+            if (timer < 0)
+            {
+                flyingObjects.Add(new FlyingObjects(flyingObjectTexture, new Vector2(15000, Game1.rng.Next(50, 650))));
+                timer = Game1.rng.Next(3000, 4000);
+            }
+            else
+            {
+                timer -= gameTime.ElapsedGameTime.Milliseconds;
+            }
+
+
         }
 
 
@@ -85,17 +99,7 @@ namespace SpringandeGris
 
 
 
-            //Kollar när värdet på timer är mindre än 0 och då lägger ut blocks i random positioner
-            //Annars så tar den timerns värde minus hur lång tid som har gått.
-            if (timer < 0)
-            {
-                flyingObjects.Add(new FlyingObjects(Game1.flyingsprite, new Vector2(15000, Game1.rng.Next(50, 650))));
-                timer = Game1.rng.Next(3000, 4000);
-            }
-            else
-            {
-                timer -= gameTime.ElapsedGameTime.Milliseconds;
-            }
+            
 
 
             //<---- Uppdaterar alla objekt genom att gå igenom alla listor av objekten ---->

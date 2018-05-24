@@ -35,11 +35,15 @@ namespace SpringandeGris
         public static Random rng = new Random();
 
 
-        public static Texture2D background, startmenuTexture, pausemenuTexture, shopmenuTexture, playButton, playButtonActive, shopButton,
+        public Texture2D background, startmenuTexture, pausemenuTexture, shopmenuTexture, playButton, playButtonActive, shopButton,
                   shopButtonActive, exitButton, exitButtonActive, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive,
                   buyButton, buyButtonActive, backButton, backButtonActive, flyingsprite, level1Texture, level2Texture,
+<<<<<<< HEAD
+                  level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture, playerSprite, healthTexture, levelOneTexture, grenSprite, levelOneTextureActive;
+=======
                   level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture,
                   playerSprite, healthTexture, levelOneTexture, grenSprite, levelOneTextureActive;
+>>>>>>> 97348797a00f7a208e4ce2e351492e2b2ae2d875
 
 
         Vector2 backgroundTest;
@@ -173,7 +177,7 @@ namespace SpringandeGris
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
+            lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
 
             effect = Content.Load<SoundEffect>("JUMP");
             
@@ -253,10 +257,14 @@ namespace SpringandeGris
 
                 if (gamestates == Gamestates.startmenu)
                 {
+<<<<<<< HEAD
+                    lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
+=======
                     //Nollställer lvl1 när man lämnar spelet.
                     lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
 
                     //Nollställer
+>>>>>>> 97348797a00f7a208e4ce2e351492e2b2ae2d875
                     player = new Player(playerSprite, playerSprite, healthTexture);
                 }
             }
@@ -273,10 +281,14 @@ namespace SpringandeGris
             //Updaterar gameover menyn
             if (gamestates == Gamestates.gameOverMenu)
             {
+<<<<<<< HEAD
+                lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
+=======
                 //Nollställertt lvl1 när man har förlorat.
                 lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
 
                 //Nollställer playern när man har förlorat. 
+>>>>>>> 97348797a00f7a208e4ce2e351492e2b2ae2d875
                 player = new Player(playerSprite, playerSprite, healthTexture);
 
                 IsMouseVisible = true;
@@ -326,7 +338,8 @@ namespace SpringandeGris
 
             //Ritar ut leveln och player.
             if (gamestates == Gamestates.inGame)
-            #region InGame Draw
+
+            #region InGame Draw (Samuel)
             {
                 spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, camera.ViewMatrix);
 
