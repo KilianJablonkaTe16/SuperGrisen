@@ -21,12 +21,11 @@ namespace SpringandeGris
         //Kollar om playern intersectar med Munken och då ger playern +1 munk.
         public override void Update(Player player, GameTime gameTime)
         {
-
             if (ObjectHitbox.Intersects(player.PlayerHitbox))
             {
                 player.munkar++;
+                removeMe = true;
             }
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)

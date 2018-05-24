@@ -626,11 +626,9 @@
 /processorParam:TextureFormat=Color
 /build:munk.jpg
 
-<<<<<<< HEAD
+
 #begin GREN.png
-=======
 #begin levelOne_active.jpg
->>>>>>> be6e3a986b3544b1dad3a63211320faa2e6376ce
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -640,9 +638,8 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-<<<<<<< HEAD
-/build:GREN.png
-=======
+
+
 /build:levelOne_active.jpg
->>>>>>> be6e3a986b3544b1dad3a63211320faa2e6376ce
+
 

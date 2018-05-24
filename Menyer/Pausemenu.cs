@@ -9,7 +9,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SpringandeGris
 {
-    class Pausemenu:SuperMenu
+    //Allt i denna klass gjordes av Kilian
+    /*
+     * De flesta sakerna som finns i denna klass bekrivs redan i startmenyn klassen, det ända som varierar.
+     * Det ända som varierar är att det skapas inte lika många knappar och att knapparna retunerar andra värden när man trycker på dem.
+     * Så de sakrena som inte är kommenterade i denna klass kommer vara komenterade i Startmenu klassen om kommentarer behövs.
+    */
+
+    class Pausemenu :SuperMenu
     {
         //Konstruktorn
         public Pausemenu(Texture2D pausemenuTexture, Texture2D resumeButton, Texture2D resumeButtonActive, Texture2D leaveButton,Texture2D leaveButtonActive)
@@ -46,11 +53,10 @@ namespace SpringandeGris
                     // Vad metoden gör beskrivs i SuperMenus klassen.
                     ButtonListForloop();
 
-                    //Nedan ändrar if sattserna på gamestatsen beroende på vilken knapp man trycker på. 
+                    //Nedan ändrar if-satserna på gamestatsen beroende på vilken knapp man trycker på. 
 
                     if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton)
-                    {
-                    
+                    {                    
                         return Gamestates.startmenu;
                     }
 
@@ -73,6 +79,7 @@ namespace SpringandeGris
                 buttonLista[1].Update(ButtonLook.normalButton);
             }
 
+            //Gör så att man markerar den första/övre knappen när man trycker på up tangenten.
             if (Keyboard.GetState().IsKeyDown(Keys.Up) && valdKnapp == 1 && lastButtonState != nowButtonState)
             {
                 valdKnapp = 0;
@@ -80,6 +87,7 @@ namespace SpringandeGris
                 buttonLista[1].Update(ButtonLook.normalButton);
             }
 
+            //Gör så att man markerar den andra/undre knappen när man trycker på ner tangenten.
             if (Keyboard.GetState().IsKeyDown(Keys.Down) && valdKnapp == 0 && gammalValdKnapp != -1 && lastButtonState != nowButtonState)
             {
                 valdKnapp = 1;
@@ -89,8 +97,10 @@ namespace SpringandeGris
 
             lastButtonState = nowButtonState;
 
+            //När den första/övre knappen är markerad och man trycker på enter går man till startmenyn och lämnar spelet.
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0)
             {
+                //Innan if-satsenretunerar sitt värde nollstänner den alla knappar i pausmenyn
                 valdKnapp = -1;
                 gammalValdKnapp = -1;
                 buttonLista[0].Update(ButtonLook.normalButton);
@@ -98,8 +108,10 @@ namespace SpringandeGris
                 return Gamestates.startmenu;
             }
 
+            //När den andra/undre knappen är markerad och man trycker på enter går man tillbaka in i spelet.
             else if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
             {
+                //Innan if-satsenretunerar sitt värde nollstänner den alla knappar i pausmenyn
                 valdKnapp = -1;
                 gammalValdKnapp = -1;
                 buttonLista[0].Update(ButtonLook.normalButton);

@@ -11,6 +11,9 @@ namespace SpringandeGris
 {
     enum ButtonLook { normalButton, lookingButton, clickingButton}
 
+    //Allt i denna klass gjordes av Kilian
+
+
     class SuperButtons
     {
         protected Texture2D normalButtonTexture, whichButtonTexture, lookingButtonTexture;

@@ -11,7 +11,12 @@ namespace SpringandeGris
     //Samuel har gjort allt det här förutom där det står att kilian har gjort något.
     class FlyingObjects:ObjektBasklassen
     {
+<<<<<<< HEAD
         //<-- Kilian -->
+=======
+        //Samuel har gjort det här
+        Random randomDirection = new Random();
+>>>>>>> 97348797a00f7a208e4ce2e351492e2b2ae2d875
         Vector2 center;
         //<-- Kilian -->
         float rotation;
@@ -28,7 +33,7 @@ namespace SpringandeGris
         public override void Update(Player player, GameTime gameTime)
         {
 
-            rotation -= MathHelper.TwoPi / -50f;
+            rotation -= MathHelper.TwoPi / -100f;
             position += velocity;
 
             if (ObjectHitbox.Intersects(player.PlayerHitbox))
@@ -43,11 +48,10 @@ namespace SpringandeGris
                     //Sätter så att man är odödlig
                     player.ärodödlig = true;
                 }
+                velocity.X = randomDirection.Next(5, 10);
+                velocity.Y = (randomDirection.Next(1, 5) * -1);
             }
         }
-
-
-
 
 
         public override void Draw(SpriteBatch spriteBatch)

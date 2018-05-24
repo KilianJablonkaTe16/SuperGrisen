@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/resumeButton.jpg</SourceFile>
+  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen_nya_vesionen/Content/resumeButton.jpg</SourceFile>
   <SourceTime>2018-05-09T16:01:18.0768383+02:00</SourceTime>
-  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/bin/Windows/resumeButton.xnb</DestFile>
-  <DestTime>2018-05-16T15:18:47.5984415+02:00</DestTime>
+  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen_nya_vesionen/Content/bin/Windows/resumeButton.xnb</DestFile>
+  <DestTime>2018-05-23T15:45:50.4911087+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

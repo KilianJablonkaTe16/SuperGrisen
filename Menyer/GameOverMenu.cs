@@ -9,9 +9,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SpringandeGris
 {
-    class GameOverMenu:SuperMenu
+    //Allt i denna klass gjordes av Kilian
+    /*
+     * De flesta sakerna som finns i denna klass bekrivs redan i startmenyn klassen, det ända som varierar.
+     * Det ända som varierar är att det skapas inte lika många knappar och att knapparna retunerar andra värden när man trycker på dem.
+     * Så de sakrena som inte är kommenterade i denna klass kommer vara komenterade i Startmenu klassen om kommentarer behövs.
+    */
+    class GameOverMenu :SuperMenu
     {
-
         public GameOverMenu(Texture2D gameOverMenuTexture, Texture2D backButton, Texture2D backButtonActive, Texture2D playButton, Texture2D playButtonActive)
         {
             menuTexture = gameOverMenuTexture;
@@ -21,7 +26,7 @@ namespace SpringandeGris
 
         public Gamestates Update(Player player)
         {
-            // Vad metoden gör beskirvs i SuperMenus.
+            //Vad metoden gör beskirvs i SuperMenus.
             GettingNewValues();
 
             if (Keyboard.GetState().IsKeyDown(Keys.Down) || Keyboard.GetState().IsKeyDown(Keys.Up))
@@ -29,7 +34,7 @@ namespace SpringandeGris
                 keysUsed = true;
             }
 
-            // Nedan är det som gör så att du kan välja knapp med muspekaren. 
+            //Nedan är det som gör så att du kan välja en knapp med muspekaren. 
             #region Funktionalitet för muspekar användning
             foreach (SuperButtons button in buttonLista)
             {
@@ -44,24 +49,20 @@ namespace SpringandeGris
                     ButtonListForloop();
 
                     #region Gamstates ändring för musanvändning
-                    //Nedan ändra på  gamestates beroende på wilken knapp man tycker på.
-                    //=================================================================================================================
+                    //Nedan ändras på  gamestates beroende på vilken knapp man tycker på.
                     if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
-                        whichButtonPressed = 0;
                         return Gamestates.startmenu;
                     }
 
                     if (buttonLista[1].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
-                        whichButtonPressed = 1;
                         return Gamestates.levelmenu;
                     }
 
                     lastMouseState = nowMouseState;
                     valdKnapp = -1;
                     gammalValdKnapp = -1;
-                    //=================================================================================================================
                     #endregion
                 }
             }
@@ -69,13 +70,10 @@ namespace SpringandeGris
 
             // Nedan är det som gör så att du kan välja knapp med piltangenter.
             #region Piltangent funktionaliteten
-            //=============================================================================================================================================================================
             if (FirtButtonActive() == true)
             {
                 valdKnapp++;
                 buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-                //buttonLista[1].Update(ButtonLook.normalButton);
-                //buttonLista[2].Update(ButtonLook.normalButton);
             }
 
             if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.up && valdKnapp >= 0)
@@ -89,6 +87,7 @@ namespace SpringandeGris
                 buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
             }
 
+            //
             if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.down && valdKnapp <= 2 && gammalValdKnapp != -1)
             {
                 buttonLista[valdKnapp].Update(ButtonLook.normalButton);
@@ -106,19 +105,17 @@ namespace SpringandeGris
             #region Gamestate retunering
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
             {
-                whichButtonPressed = 0;
                 return Gamestates.startmenu;
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 2)
             {
-                whichButtonPressed = 1;
                 return Gamestates.levelmenu;
             }
             #endregion
-            //=====================================================================================================================================================
             #endregion
 
+            //Gör så att man stannar i gameOver menyn om man inte trycker på en knapp.
             else
                 return Gamestates.gameOverMenu;
         }

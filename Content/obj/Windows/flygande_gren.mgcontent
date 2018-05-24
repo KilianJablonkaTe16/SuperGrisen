@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/flygande_gren.png</SourceFile>
+  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen_nya_vesionen/Content/flygande_gren.png</SourceFile>
   <SourceTime>2018-05-11T16:05:23.5843477+02:00</SourceTime>
-  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/bin/Windows/flygande_gren.xnb</DestFile>
-  <DestTime>2018-05-16T15:18:49.8709679+02:00</DestTime>
+  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen_nya_vesionen/Content/bin/Windows/flygande_gren.xnb</DestFile>
+  <DestTime>2018-05-23T15:45:53.083347+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

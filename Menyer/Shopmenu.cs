@@ -9,8 +9,16 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SpringandeGris
 {
-    class Shopmenu:SuperMenu
+    //Allt i denna klass gjordes av Kilian
+    /*
+     * De flesta sakerna som finns i denna klass bekrivs redan i startmenyn klassen, det ända som varierar.
+     * Det ända som varierar är att det skapas inte lika många knappar och att knapparna retunerar andra värden när man trycker på dem.
+     * Så de sakrena som inte är kommenterade i denna klass kommer vara komenterade i Startmenu klassen om kommentarer behövs.
+    */
+
+    class Shopmenu :SuperMenu
     {
+        //Två variabler som behövs för att skriva ut hur många munkar och liv man har i shopmenyn.
         protected int shopMunkar, upgradeHealth;
 
         //Konstruktorn
@@ -23,10 +31,12 @@ namespace SpringandeGris
 
         public Gamestates Update(Player player)
         {
-            // Vad metoden gör beskirvs i SuperMenus.
-            upgradeHealth = player.health;
-            GettingNewValues();
+            //Shopmeny variabler får deras startvärde från player klassen.
             shopMunkar = player.munkar;
+            upgradeHealth = player.health;
+
+            // Vad metoden gör beskirvs i SuperMenus.
+            GettingNewValues();
 
             if (Keyboard.GetState().IsKeyDown(Keys.Down) || Keyboard.GetState().IsKeyDown(Keys.Up))
             {
@@ -47,19 +57,21 @@ namespace SpringandeGris
                     // Vad metoden gör beskrivs i SuperMenus klassen.
                     ButtonListForloop();
 
-                    //Nedan ändras gamestatens
-
                     if (buttonLista[1].MouseOnButton() == ButtonLook.clickingButton)
                     {
                         return Gamestates.startmenu;
                     }
 
-                    if(shopMunkar != 0)
+                    //If-satsen gör så att man inte kan köpa något mer när man inte har liräkligt med munkar.
+                    if (shopMunkar >= 50)
                     {
+                        //If-satsen gör så att man köper ett till liv när man tycker på "köp" knappen i shopmenyn.
                         if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton && lastMouseState != nowMouseState && lastMouseState.Position == nowMouseState.Position)
                         {
                             player.health++;
                             player.munkar -= 50;
+
+                            //En variabel som skriver ut hur många liv man har i shopmenyn.
                             upgradeHealth++;
                         }
                     }
@@ -97,12 +109,17 @@ namespace SpringandeGris
 
                 buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
             }
-            if(shopMunkar != 0)
+
+            //If-satsen gör så att man inte kan köpa något mer när man inte har liräkligt med munkar.
+            if(shopMunkar >= 50)
             {
+                //If-satsen gör så att man köper ett till liv när man tycker på "köp" knappen i shopmenyn.
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0 && lastButtonState != nowButtonState)
                 {
                     player.health++;
                     player.munkar -= 50;
+
+                    //En variabel som skriver ut hur många liv man har i shopmenyn.
                     upgradeHealth++;
                 }
             }
@@ -131,7 +148,11 @@ namespace SpringandeGris
             {
                 pauseButton.Draw(spriteBatch);
             }
+
+            //Skriver ut hur många munkar man har.
             spriteBatch.DrawString(buyJump, "Munkar: " + shopMunkar.ToString(), new Vector2(500, 200), Color.White);
+
+            //Skriver ut hur många liv man har.
             spriteBatch.DrawString(buyJump, "Health: " + upgradeHealth.ToString(), new Vector2(500, 320), Color.White);
         }
 
