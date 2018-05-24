@@ -35,15 +35,11 @@ namespace SpringandeGris
         public static Random rng = new Random();
 
 
-        public static Texture2D background, startmenuTexture, pausemenuTexture, shopmenuTexture, playButton, playButtonActive, shopButton,
+        public Texture2D background, startmenuTexture, pausemenuTexture, shopmenuTexture, playButton, playButtonActive, shopButton,
                   shopButtonActive, exitButton, exitButtonActive, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive,
                   buyButton, buyButtonActive, backButton, backButtonActive, flyingsprite, level1Texture, level2Texture,
-                  level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture,
-<<<<<<< HEAD
-                  playerSprite, healthTexture, levelOneTexture, grenSprite;
-=======
-                  playerSprite, healthTexture, levelOneTexture, levelOneTextureActive;
->>>>>>> be6e3a986b3544b1dad3a63211320faa2e6376ce
+                  level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture, playerSprite, healthTexture, levelOneTexture, grenSprite, levelOneTextureActive;
+
 
         Vector2 backgroundTest;
         float backgroundWidth;
@@ -179,7 +175,7 @@ namespace SpringandeGris
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
+            lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
 
             effect = Content.Load<SoundEffect>("JUMP");
             
@@ -258,7 +254,7 @@ namespace SpringandeGris
 
                 if (gamestates == Gamestates.startmenu)
                 {
-                    lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
+                    lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
                     player = new Player(playerSprite, playerSprite, healthTexture);
                 }
             }
@@ -273,7 +269,7 @@ namespace SpringandeGris
 
             if (gamestates == Gamestates.gameOverMenu)
             {
-                lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
+                lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
                 player = new Player(playerSprite, playerSprite, healthTexture);
                 IsMouseVisible = true;
                 gamestates = gameOverMenu.Update(player);
@@ -317,7 +313,8 @@ namespace SpringandeGris
 
 
             if (gamestates == Gamestates.inGame)
-            #region InGame Draw
+
+            #region InGame Draw (Samuel)
             {
                 spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, camera.ViewMatrix);
 

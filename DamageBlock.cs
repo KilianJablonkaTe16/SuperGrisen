@@ -21,9 +21,10 @@ namespace SpringandeGris
 
         public override void Update(Player player, GameTime gameTime)
         {
-            //Ändrar på playerns position när den träffar översidan av ett objekt
+            
             if (ObjectHitbox.Intersects(player.PlayerHitbox) && hitboxes == Hitboxes.Up)
             {
+
                 player.harhoppat = false;
                 player.position.Y = ObjectHitbox.Location.Y - player.texture.Height;
 
@@ -39,7 +40,7 @@ namespace SpringandeGris
             }
 
 
-            //Ändrar på playerns position när den träffar undersidan av ett objekt
+            
             else if (ObjectHitbox.Intersects(player.PlayerHitbox) && hitboxes == Hitboxes.Down)
             {
 

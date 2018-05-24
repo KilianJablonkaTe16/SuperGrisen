@@ -8,17 +8,21 @@ using System.Threading.Tasks;
 
 namespace SpringandeGris
 {
+    //Samuel har gjort allt det här förutom där det står att kilian har gjort något.
     class FlyingObjects:ObjektBasklassen
     {
-        //Samuel har gjort det här
+        //<-- Kilian -->
         Vector2 center;
+        //<-- Kilian -->
         float rotation;
         public FlyingObjects(Texture2D texture, Vector2 position):base(texture)
         {
             this.texture = texture;
             this.position = position;
             velocity = new Vector2(-10, 0);
+            //<-- Kilian har gjort det här -- >
             center = new Vector2(texture.Height / 2, texture.Width / 2);
+            //<-- -->
         }
 
         public override void Update(Player player, GameTime gameTime)
@@ -40,66 +44,6 @@ namespace SpringandeGris
                     player.ärodödlig = true;
                 }
             }
-
-
-
-
-
-            ////Ändrar på playerns position när den träffar översidan av ett objekt
-            //if (ObjectHitbox.Intersects(player.PlayerHitbox) && hitboxes == Hitboxes.Up)
-            //{
-
-
-            //    player.harhoppat = false;
-               
-            //    if (player.ärodödlig == false)
-            //    {
-            //        //Playern tar 1 damage
-            //        player.health--;
-            //        player.timer = 1000;
-
-            //    }
-
-                
-            //}
-
-            ////Ändrar på playerns position när den träffar undersidan av ett objekt
-            //else if (ObjectHitbox.Intersects(player.PlayerHitbox) && hitboxes == Hitboxes.Down)
-            //{
-
-                 
-            //    if (player.ärodödlig == false)
-            //    {
-            //        //Playern tar 1 damage
-            //        player.health--;
-            //        player.timer = 1000;
-            //    }
-            //}
-            //else if (ObjectHitbox.Intersects(player.PlayerHitbox) && hitboxes == Hitboxes.Left)
-            //{
-
-                
-            //    player.harhoppat = true;
-            //    //Playern tar 1 damage;
-            //    player.health--;
-            //    if (player.ärodödlig == false)
-            //    {
-
-            //        player.timer = 1000;
-            //    }
-
-            //}
-            //else if (ObjectHitbox.Intersects(player.PlayerHitbox) && hitboxes == Hitboxes.Right)
-            //{
-                
-            //    player.harhoppat = true;
-            //    player.health--;
-            //    if (player.ärodödlig == false)
-            //    {
-            //        player.timer = 1000;
-            //    }
-
-            //}
         }
 
 

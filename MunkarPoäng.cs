@@ -10,7 +10,7 @@ namespace SpringandeGris
 {
     class MunkarPoäng : ObjektBasklassen
     {
-
+        //Samuel har gjort det här
         public MunkarPoäng(Texture2D texture, Vector2 position) : base(texture)
         {
             this.texture = texture;
@@ -18,6 +18,7 @@ namespace SpringandeGris
 
         }
 
+        //Kollar om playern intersectar med Munken och då ger playern +1 munk.
         public override void Update(Player player, GameTime gameTime)
         {
 
