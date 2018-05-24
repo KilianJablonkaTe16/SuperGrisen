@@ -111,13 +111,6 @@ namespace SpringandeGris
                 flygandeObjekten.CheckHitboxes(flygandeObjekten.ObjectHitbox, player);
             }
 
-            foreach (FlyingObjects flygandeObjekten in flyingObjects)
-            {
-                //if (flygandeObjekten.removeMe == true)
-                //{
-                //    flyingObjects.Remove(flygandeObjekten);
-                //}
-            }
             foreach (DamageBlock damageObjekt in damageBlocks)
             {
                 damageObjekt.Update(player, gameTime);
@@ -137,6 +130,7 @@ namespace SpringandeGris
             foreach(Gren gren in grenar)
             {
                 gren.Update(player, gameTime);
+                gren.CheckHitboxes(gren.ObjectHitbox, player);
             }
             for (int i = 0; i < flyingObjects.Count; i++)
             {
@@ -147,7 +141,7 @@ namespace SpringandeGris
             if(blockTimer <= 0)
             {
                 groundBlocks.Dequeue();
-                blockTimer = 50;        
+                blockTimer = 200;        
             }
             blockTimer--;
 

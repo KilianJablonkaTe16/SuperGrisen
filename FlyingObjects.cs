@@ -19,13 +19,13 @@ namespace SpringandeGris
             this.texture = texture;
             this.position = position;
             velocity = new Vector2(-10, 0);
-            center = new Vector2(texture.Height / 2, texture.Width / 2);
+            center = new Vector2((texture.Height / 2), (texture.Width / 2));
         }
 
         public override void Update(Player player, GameTime gameTime)
         {
 
-            rotation -= MathHelper.TwoPi / -100f;
+            rotation -= MathHelper.TwoPi / -80f;
             position += velocity;
 
             if (ObjectHitbox.Intersects(player.PlayerHitbox))
@@ -40,8 +40,8 @@ namespace SpringandeGris
                     //Sätter så att man är odödlig
                     player.ärodödlig = true;
                 }
-                velocity.X = randomDirection.Next(5, 10);
-                velocity.Y = (randomDirection.Next(1, 5) * -1);
+                velocity.X *= -2;
+                velocity.Y = (randomDirection.Next(8, 16) * -1);
             }
 
 

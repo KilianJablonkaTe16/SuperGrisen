@@ -166,3 +166,4 @@ C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\obj\x86\Debug\Basklass test 1.csprojResolveAssemblyReference.cache
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\obj\x86\Debug\SpringandeGris.exe
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\obj\x86\Debug\SpringandeGris.pdb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\coins.xnb
