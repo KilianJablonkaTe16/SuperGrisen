@@ -11,6 +11,7 @@ namespace SpringandeGris
     class FlyingObjects:ObjektBasklassen
     {
         //Samuel har gjort det här
+        Random randomDirection = new Random();
         Vector2 center;
         float rotation;
         public FlyingObjects(Texture2D texture, Vector2 position):base(texture)
@@ -24,7 +25,7 @@ namespace SpringandeGris
         public override void Update(Player player, GameTime gameTime)
         {
 
-            rotation -= MathHelper.TwoPi / -50f;
+            rotation -= MathHelper.TwoPi / -100f;
             position += velocity;
 
             if (ObjectHitbox.Intersects(player.PlayerHitbox))
@@ -39,6 +40,8 @@ namespace SpringandeGris
                     //Sätter så att man är odödlig
                     player.ärodödlig = true;
                 }
+                velocity.X = randomDirection.Next(5, 10);
+                velocity.Y = (randomDirection.Next(1, 5) * -1);
             }
 
 
@@ -101,9 +104,6 @@ namespace SpringandeGris
 
             //}
         }
-
-
-
 
 
         public override void Draw(SpriteBatch spriteBatch)

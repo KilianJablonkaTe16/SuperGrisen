@@ -39,18 +39,12 @@ namespace SpringandeGris
                   shopButtonActive, exitButton, exitButtonActive, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive,
                   buyButton, buyButtonActive, backButton, backButtonActive, flyingsprite, level1Texture, level2Texture,
                   level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture,
-<<<<<<< HEAD
-                  playerSprite, healthTexture, levelOneTexture, grenSprite;
-=======
-                  playerSprite, healthTexture, levelOneTexture, levelOneTextureActive;
->>>>>>> be6e3a986b3544b1dad3a63211320faa2e6376ce
+                  playerSprite, healthTexture, levelOneTexture, grenSprite, levelOneTextureActive;
+
 
         Vector2 backgroundTest;
         float backgroundWidth;
-        
-        
-
-        
+           
 
         //Instanser av klasser
         #region Klassinstanser
@@ -206,14 +200,15 @@ namespace SpringandeGris
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-
-
+            //All kod i regonen nedan  alltså mellan de två gröna sträcken är av Kilian 
+            //===========================================================================================================================
+            #region Kilians del i Game1
             // De olika if-satserna  nedan som anroppar de olika "Update" metoderna 
             // är till för att när man till exempel spelaren inte ska fortsätta springa runt 
             // när man har pausat spelet.  
 
 
-            //Kör "testleveln och playern"
+            //Updaterar "testleveln och playern"
             if (gamestates == Gamestates.inGame)
             #region Allt i test level och player
             {
@@ -232,7 +227,7 @@ namespace SpringandeGris
             }
 
 
-            //Visar start menyn
+            //Updaterar start menyn
             if (gamestates == Gamestates.startmenu)
             {
                 IsMouseVisible = true;
@@ -242,7 +237,7 @@ namespace SpringandeGris
             }
 
 
-            //Visar level menyn
+            //Updaterar level menyn
             if (gamestates == Gamestates.levelmenu)
             {
                 IsMouseVisible = true;
@@ -250,7 +245,7 @@ namespace SpringandeGris
             }
 
 
-            //Visar paus menyn 
+            //Updaterar paus menyn 
             if (gamestates == Gamestates.pausemenu)
             {
                 IsMouseVisible = true;
@@ -258,23 +253,32 @@ namespace SpringandeGris
 
                 if (gamestates == Gamestates.startmenu)
                 {
+                    //Nollställer lvl1 när man lämnar spelet.
                     lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
+
+                    //Nollställer
                     player = new Player(playerSprite, playerSprite, healthTexture);
                 }
             }
 
 
-            //Visar shop menyn
+            //Updaterar shop menyn
             if (gamestates == Gamestates.shopmenu)
             {
                 IsMouseVisible = true;
                 gamestates = shopmenu.Update(player);
             }
 
+
+            //Updaterar gameover menyn
             if (gamestates == Gamestates.gameOverMenu)
             {
+                //Nollställertt lvl1 när man har förlorat.
                 lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
+
+                //Nollställer playern när man har förlorat. 
                 player = new Player(playerSprite, playerSprite, healthTexture);
+
                 IsMouseVisible = true;
                 gamestates = gameOverMenu.Update(player);
             }
@@ -289,10 +293,11 @@ namespace SpringandeGris
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);          
+            GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // De olika "Draw" metoderna nedan anroppas beroende på i vilken värde "gamestates" har. 
 
+            //Ritar ut startmenyn.
             if (gamestates == Gamestates.startmenu)
             {
                 spriteBatch.Begin();
@@ -301,13 +306,16 @@ namespace SpringandeGris
             }
 
 
-            if(gamestates == Gamestates.levelmenu)
+            //Ritar ut levelmenyn.
+            if (gamestates == Gamestates.levelmenu)
             {
                 spriteBatch.Begin();
                 levelMenu.Draw(spriteBatch);
                 spriteBatch.End();
             }
 
+
+            //Ritar ut shopmenyn.
             if (gamestates == Gamestates.shopmenu)
             {
                 spriteBatch.Begin();
@@ -316,6 +324,7 @@ namespace SpringandeGris
             }
 
 
+            //Ritar ut leveln och player.
             if (gamestates == Gamestates.inGame)
             #region InGame Draw
             {
@@ -333,8 +342,9 @@ namespace SpringandeGris
                 spriteBatch.End();
             }
             #endregion
-            
 
+
+            //Ritar ut pausmenyn.
             if (gamestates == Gamestates.pausemenu)
             {
                 spriteBatch.Begin();
@@ -342,13 +352,16 @@ namespace SpringandeGris
                 spriteBatch.End();
             }
 
+
+            //Ritar ut gameovermenyn.
             if (gamestates == Gamestates.gameOverMenu)
             {
                 spriteBatch.Begin();
                 gameOverMenu.Draw(spriteBatch);
                 spriteBatch.End();
             }
-
+            #endregion
+            //===========================================================================================================================
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

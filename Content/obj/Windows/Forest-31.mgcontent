@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/Forest-31.jpg</SourceFile>
+  <SourceFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen_nya_vesionen/Content/Forest-31.jpg</SourceFile>
   <SourceTime>2018-05-09T16:01:17.6537688+02:00</SourceTime>
-  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen/Content/bin/Windows/Forest-31.xnb</DestFile>
-  <DestTime>2018-05-16T15:18:48.7351382+02:00</DestTime>
+  <DestFile>C:/Users/kilian.jablonka/Documents/GitHub/SuperGrissen_nya_vesionen/Content/bin/Windows/Forest-31.xnb</DestFile>
+  <DestTime>2018-05-23T15:45:51.8247501+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T16:05:36+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

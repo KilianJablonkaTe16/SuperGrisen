@@ -20,12 +20,11 @@ namespace SpringandeGris
 
         public override void Update(Player player, GameTime gameTime)
         {
-
             if (ObjectHitbox.Intersects(player.PlayerHitbox))
             {
                 player.munkar++;
+                removeMe = true;
             }
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)

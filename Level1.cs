@@ -18,10 +18,11 @@ namespace SpringandeGris
         //Variabel som används för att kunna lägga blocksen/golvet exakt bredvid varandra
         int positionx = 0;
         int positionx2 = 8100;
+        int blockTimer = 50;
 
 
         //Listor för alla objekt
-        List<ObjektBasklassen> groundBlocks = new List<ObjektBasklassen>();
+        Queue<ObjektBasklassen> groundBlocks = new Queue<ObjektBasklassen>();
         List<FlyingObjects> flyingObjects = new List<FlyingObjects>();
         List<DamageBlock>  damageBlocks = new List<DamageBlock>();
         List<MunkarPoäng> munkar = new List<MunkarPoäng>();
@@ -37,7 +38,7 @@ namespace SpringandeGris
 
                 //Game1.Objekten.Add(new Block(Game1.objectSprite, new Vector2(player.position.X + Game1.rng.Next(100,10000), Game1.rng.Next(Convert.ToInt32(player.position.X) + player.PlayerHitbox.Height - 50, Convert.ToInt32(player.position.X) + player.PlayerHitbox.Height + 50))));
 
-                groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(positionx, 810)));
+                groundBlocks.Enqueue(new GroundBlock(groundBlockTexture, new Vector2(positionx, 810)));
 
                 positionx += groundBlockTexture.Width;
             }
@@ -50,12 +51,12 @@ namespace SpringandeGris
             damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(3700, 810 - damageBlockTexture.Height)));
             damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(4300, 810 - damageBlockTexture.Height)));
 
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(4800, 810)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(5500, 810)));
+            groundBlocks.Enqueue(new GroundBlock(groundBlockTexture, new Vector2(4800, 810)));
+            groundBlocks.Enqueue(new GroundBlock(groundBlockTexture, new Vector2(5500, 810)));
             munkar.Add(new MunkarPoäng(munkTexture, new Vector2(5750, 500)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(6100, 810)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(6700, 600)));
-            groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(7400, 600)));
+            groundBlocks.Enqueue(new GroundBlock(groundBlockTexture, new Vector2(6100, 810)));
+            groundBlocks.Enqueue(new GroundBlock(groundBlockTexture, new Vector2(6700, 600)));
+            groundBlocks.Enqueue(new GroundBlock(groundBlockTexture, new Vector2(7400, 600)));
             grenar.Add(new Gren(grenTexture, new Vector2(7800, 400)));
             damageBlocks.Add(new DamageBlock(damageBlockTexture, new Vector2(8400, 810 - damageBlockTexture.Height)));
             grenar.Add(new Gren(grenTexture, new Vector2(8800, 500)));
@@ -69,7 +70,7 @@ namespace SpringandeGris
             for (int i = 0; i < 100; i++)
             {
 
-                groundBlocks.Add(new GroundBlock(groundBlockTexture, new Vector2(positionx2, 810)));
+                groundBlocks.Enqueue(new GroundBlock(groundBlockTexture, new Vector2(positionx2, 810)));
                 
                 positionx2 += groundBlockTexture.Width;
             }
@@ -112,30 +113,50 @@ namespace SpringandeGris
 
             foreach (FlyingObjects flygandeObjekten in flyingObjects)
             {
-                if (flygandeObjekten.removeMe == true)
-                {
-                    groundBlocks.Remove(flygandeObjekten);
-                }
+                //if (flygandeObjekten.removeMe == true)
+                //{
+                //    flyingObjects.Remove(flygandeObjekten);
+                //}
             }
             foreach (DamageBlock damageObjekt in damageBlocks)
             {
                 damageObjekt.Update(player, gameTime);
                 damageObjekt.CheckHitboxes(damageObjekt.ObjectHitbox, player);
             }
-            foreach (MunkarPoäng Munkar in munkar)
+
+            for(int i = 0; i < munkar.Count; i++)
             {
-                Munkar.Update(player, gameTime);
+                munkar[i].Update(player, gameTime);
+                
+                if(munkar[i].removeMe == true)
+                {
+                    munkar.Remove(munkar[i]);
+                }
             }
-            foreach (Gren gren in grenar)
+
+            foreach(Gren gren in grenar)
             {
                 gren.Update(player, gameTime);
-                gren.CheckHitboxes(gren.ObjectHitbox, player);
             }
+            for (int i = 0; i < flyingObjects.Count; i++)
+            {
+                flyingObjects[i].Update(player, gameTime);
+            }
+
+            //Tar bort groundblicken en efter en.
+            if(blockTimer <= 0)
+            {
+                groundBlocks.Dequeue();
+                blockTimer = 50;        
+            }
+            blockTimer--;
+
 
             if (Keyboard.GetState().IsKeyDown(Keys.R))
             {
                 player.position = new Vector2(200, 300);
             }
+
             //Pausar spelet. 
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {

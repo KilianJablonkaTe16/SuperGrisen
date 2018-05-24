@@ -9,7 +9,14 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SpringandeGris
 {
-    class LevelMenu:SuperMenu
+    //Allt i denna klass gjordes av Kilian
+    /*
+     * De flesta sakerna som finns i denna klass bekrivs redan i startmenyn klassen, det ända som varierar.
+     * Det ända som varierar är att det skapas inte lika många knappar och att knapparna retunerar andra värden när man trycker på dem.
+     * Så de sakrena som inte är kommenterade i denna klass kommer vara komenterade i Startmenu klassen om kommentarer behövs.
+    */
+
+    class LevelMenu :SuperMenu
     {
         public LevelMenu(Texture2D playButton, Texture2D playButtonActive, Texture2D levelmenyBackground,Texture2D levelOneTexture, Texture2D levelOneTextureActive, Texture2D backButton, Texture2D backButtonActive, Texture2D easyButton, Texture2D easyButtonActive, Texture2D normalButton, Texture2D normalButtonActive, Texture2D hardButton, Texture2D hardButtonActive, Texture2D sonicButton, Texture2D sonicButtonActive)
         {
@@ -56,12 +63,14 @@ namespace SpringandeGris
 
                     #region Gamstates ändring för musanvändning
                     //Nedan ändra på  gamestates beroende på wilken knapp man tycker på.
-                    //=================================================================================================================
+
+                    //If-satsen statar spelet när man trycker på Play knappen.
                     if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         return Gamestates.inGame;
                     }
 
+                    //If-satsen gör ställer in spelet på den lättaste svårighetsgraden när man trycker på Easy knappen.
                     if (buttonLista[1].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         player.velocity.X = 4;
@@ -69,6 +78,7 @@ namespace SpringandeGris
                         player.gravity.Y = 0.4f;
                     }
 
+                    //If-satsen gör ställer in spelet på den lagomsvåra svårighetsgraden när man trycker på Normal knappen.
                     if (buttonLista[2].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         player.velocity.X = 8;
@@ -76,6 +86,7 @@ namespace SpringandeGris
                         player.gravity.Y = 0.6f;
                     }
 
+                    //If-satsen gör ställer in spelet på den svåra svårighetsgraden när man trycker på Hard knappen.
                     if (buttonLista[3].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         player.velocity.X = 16;
@@ -83,6 +94,7 @@ namespace SpringandeGris
                         player.gravity.Y = 0.8f;
                     }
 
+                    //If-satsen gör ställer in spelet på den svåraste svårighetsgraden när man trycker på Sonic? knappen.
                     if (buttonLista[4].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         player.velocity.X = 32;
@@ -97,8 +109,7 @@ namespace SpringandeGris
 
                     lastMouseState = nowMouseState;
                     valdKnapp = -1;
-                    gammalValdKnapp = -1;
-                    //=================================================================================================================
+                    gammalValdKnapp = -1;                    
                     #endregion
                 }
             }
@@ -106,7 +117,7 @@ namespace SpringandeGris
 
             // Nedan är det som gör så att du kan välja knapp med piltangenter.
             #region Piltangent funktionaliteten
-            //=============================================================================================================================================================================
+
             if (FirtButtonActive() == true)
             {
                 valdKnapp++;
@@ -139,10 +150,14 @@ namespace SpringandeGris
 
             //Nedan ändras gamestates beroende på vilken knapp man "aktiverar". 
             #region Gamestate retunering
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0 && whichButtonPressed != 0)
+
+            //If-satsen gör så att man startar spelet när man trycker på Play knappen.
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0)
             {
                 return Gamestates.inGame;
             }
+
+            //If-satsen gör ställer in spelet på den lättaste svårighetsgraden när man trycker på Easy knappen.
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
             {
                 player.velocity.X = 4;
@@ -150,6 +165,7 @@ namespace SpringandeGris
                 player.gravity.Y = 0.4f;
             }
 
+            //If-satsen gör ställer in spelet på den lagomsvåra svårighetsgraden när man trycker på Normal knappen.
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 2)
             {
                 player.velocity.X = 8;
@@ -157,6 +173,7 @@ namespace SpringandeGris
                 player.gravity.Y = 0.6f;
             }
 
+            //If-satsen gör ställer in spelet på den svåra svårighetsgraden när man trycker på Hard knappen.
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 3)
             {
                 player.velocity.X = 16;
@@ -164,6 +181,7 @@ namespace SpringandeGris
                 player.gravity.Y = 0.8f;
             }
 
+            //If-satsen gör ställer in spelet på den svåraste svårighetsgraden när man trycker på Sonic? knappen.
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 4)
             {
                 player.velocity.X = 32;
@@ -177,12 +195,7 @@ namespace SpringandeGris
                 return Gamestates.startmenu;
             }
             #endregion
-            //=====================================================================================================================================================
             #endregion
-
-
-            else if (Keyboard.GetState().IsKeyDown(Keys.M))
-                return Gamestates.inGame;
 
             else
                 return Gamestates.levelmenu;
