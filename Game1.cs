@@ -16,34 +16,31 @@ namespace SpringandeGris
     /// 
 
 
-    enum Gamestates { inGame, startmenu, pausemenu, shopmenu, levelmenu, gameOverMenu, exitgame }
+    enum Gamestates { inGame, startmenu, pausemenu, shopmenu, levelmenu, gameOverMenu, youWinMenu, exitgame }
 
 
 
     public class Game1 : Game
     {
         SoundEffect effect;
+        SoundEffect eatingMunk;
         
 
         Gamestates gamestates = new Gamestates();
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        SpriteFont buyJump;
+        SpriteFont comicSansFont;
         Level1 lvl1;
         Camera camera = new Camera();
         public static Random rng = new Random();
 
 
-        public Texture2D background, startmenuTexture, pausemenuTexture, shopmenuTexture, playButton, playButtonActive, shopButton,
-                  shopButtonActive, exitButton, exitButtonActive, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive,
-                  buyButton, buyButtonActive, backButton, backButtonActive, flyingsprite, level1Texture, level2Texture,
-<<<<<<< HEAD
-                  level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture, playerSprite, healthTexture, levelOneTexture, grenSprite, levelOneTextureActive;
-=======
-                  level3Texture, level4Texture, damagesprite, groundBlockTexture, munkSprite, levelmenuBackground, level1ZoomTexture,
-                  playerSprite, healthTexture, levelOneTexture, grenSprite, levelOneTextureActive;
->>>>>>> 97348797a00f7a208e4ce2e351492e2b2ae2d875
+        public Texture2D background, playButton, playButtonActive, playeButtonPressed, leaveButton, leaveButtonActive, 
+                         backButton, backButtonActive, flyingsprite, level1Texture, level2Texture, level3Texture, level4Texture, 
+                         damagesprite, groundBlockTexture, snowGroundTexture, munkSprite, playerSprite, healthTexture, levelOneTexture, 
+                         grenSprite, levelOneTextureActive, rainTexture, snowTexture;
+
 
 
         Vector2 backgroundTest;
@@ -58,6 +55,8 @@ namespace SpringandeGris
         Player player;
         LevelMenu levelMenu;
         GameOverMenu gameOverMenu;
+        YouWinMenu youWinMenu;
+        Rain rain;
         #endregion
 
 
@@ -94,19 +93,24 @@ namespace SpringandeGris
             grenSprite = Content.Load<Texture2D>("GREN");
             flyingsprite = Content.Load<Texture2D>("flygande_gren");
             groundBlockTexture = Content.Load<Texture2D>("srort_block");
+            snowGroundTexture = Content.Load<Texture2D>("snwo_groundblock");
             damagesprite = Content.Load<Texture2D>("Mario_runing");
             background = Content.Load<Texture2D>("Forest-31");
             munkSprite = Content.Load<Texture2D>("coins");
             backgroundWidth = background.Width;
             backgroundTest = new Vector2(0, 0);
 
+            rainTexture = Content.Load<Texture2D>("rain");
+            snowTexture = Content.Load<Texture2D>("big_snowflake2");
+
             //Meny bakgrunder
             #region Meny Bakgrunder
-            startmenuTexture = Content.Load<Texture2D>("title_screen_almost");
-            shopmenuTexture = Content.Load<Texture2D>("new_shop_screen");
-            pausemenuTexture = Content.Load<Texture2D>("liten_pausescreen_test");
-            levelmenuBackground = Content.Load<Texture2D>("levelmeny_bakgrund_utan");
+            Texture2D startmenuTexture = Content.Load<Texture2D>("title_screen_almost");
+            Texture2D shopmenuTexture = Content.Load<Texture2D>("new_shop_screen");
+            Texture2D pausemenuTexture = Content.Load<Texture2D>("liten_pausescreen_test");
+            Texture2D levelmenuTexture = Content.Load<Texture2D>("levelmeny_bakgrund_utan");
             Texture2D gameOverMenuTexture = Content.Load<Texture2D>("new_gameOver_screen");
+            Texture2D youWinMenuTexture = Content.Load<Texture2D>("wining_screen");
             #endregion
 
             //Alla knappterturers
@@ -114,14 +118,14 @@ namespace SpringandeGris
             playButton = Content.Load<Texture2D>("playButton");
             playButtonActive = Content.Load<Texture2D>("playButton_active");
 
-            shopButton = Content.Load<Texture2D>("shopButton");
-            shopButtonActive = Content.Load<Texture2D>("shopButton_active");
+            Texture2D shopButton = Content.Load<Texture2D>("shopButton");
+            Texture2D shopButtonActive = Content.Load<Texture2D>("shopButton_active");
 
-            exitButton = Content.Load<Texture2D>("exitButton");
-            exitButtonActive = Content.Load<Texture2D>("exitButton_active");
+            Texture2D exitButton = Content.Load<Texture2D>("exitButton");
+            Texture2D exitButtonActive = Content.Load<Texture2D>("exitButton_active");
 
-            resumeButton = Content.Load<Texture2D>("resumeButton");
-            resumeButtonActive = Content.Load<Texture2D>("resumeButton_active");
+            Texture2D resumeButton = Content.Load<Texture2D>("resumeButton");
+            Texture2D resumeButtonActive = Content.Load<Texture2D>("resumeButton_active");
 
             leaveButton = Content.Load<Texture2D>("leaveButton");
             leaveButtonActive = Content.Load<Texture2D>("leaveButton_active");
@@ -129,11 +133,8 @@ namespace SpringandeGris
             backButton = Content.Load<Texture2D>("backButton");
             backButtonActive = Content.Load<Texture2D>("backButton_active");
 
-            buyButton = Content.Load<Texture2D>("buyButton");
-            buyButtonActive = Content.Load<Texture2D>("buyButton_active");
-
-            level1Texture = Content.Load<Texture2D>("level-1");
-            level1ZoomTexture = Content.Load<Texture2D>("level-1-zoom");
+            Texture2D buyButton = Content.Load<Texture2D>("buyButton");
+            Texture2D buyButtonActive = Content.Load<Texture2D>("buyButton_active");
 
             Texture2D easyButton = Content.Load<Texture2D>("easy_button");
             Texture2D easyButtonActive = Content.Load<Texture2D>("easy_button_active");
@@ -147,24 +148,30 @@ namespace SpringandeGris
             Texture2D sonicButton = Content.Load<Texture2D>("sonic_button");
             Texture2D sonicButtonActive = Content.Load<Texture2D>("sonic_button_active");
 
-            levelOneTexture = Content.Load<Texture2D>("level_one_texture");
-            levelOneTextureActive = Content.Load<Texture2D>("levelOne_active");
+            Texture2D level1Texture = Content.Load<Texture2D>("level1_button");
+            Texture2D level1TextureHover = Content.Load<Texture2D>("level1_button_active");
 
-            level2Texture = Content.Load<Texture2D>("level-2");
-            level3Texture = Content.Load<Texture2D>("level-3");
-            level4Texture = Content.Load<Texture2D>("level-4");
+            Texture2D level2Texture = Content.Load<Texture2D>("level2_button");
+            Texture2D level2TextureHover = Content.Load<Texture2D>("level2_button_active");
+
+            Texture2D level3Texture = Content.Load<Texture2D>("level3_button");
+            Texture2D level3TextureHover = Content.Load<Texture2D>("level3_button_active");
+
+            Texture2D level4Texture = Content.Load<Texture2D>("level4_button");
+            Texture2D level4TextureHover = Content.Load<Texture2D>("level4_button_active");
             #endregion
 
-            buyJump = Content.Load<SpriteFont>("BuyJump");
+            comicSansFont = Content.Load<SpriteFont>("BuyJump");
             #endregion
 
             startmenu = new Startmenu(startmenuTexture, playButton, playButtonActive, shopButton, shopButtonActive, exitButton, exitButtonActive);
             shopmenu = new Shopmenu(shopmenuTexture, buyButton, buyButtonActive, backButton, backButtonActive);
-            levelMenu = new LevelMenu(playButton, playButtonActive, levelmenuBackground, levelOneTexture, levelOneTextureActive, backButton, backButtonActive, easyButton, easyButtonActive, normalButton, normalButtonActive, hardButton, hardButtonActive, sonicButton, sonicButtonActive);
+            levelMenu = new LevelMenu(playButton, playButtonActive, levelmenuTexture, level1Texture, level1TextureHover, level2Texture, level2TextureHover, level3Texture, level3TextureHover, level4Texture, level4TextureHover, backButton, backButtonActive, easyButton, easyButtonActive, normalButton, normalButtonActive, hardButton, hardButtonActive, sonicButton, sonicButtonActive);
             pausemenu = new Pausemenu(pausemenuTexture, resumeButton, resumeButtonActive, leaveButton, leaveButtonActive);
             player = new Player(playerSprite, playerCrouch, healthTexture);
             gameOverMenu = new GameOverMenu(gameOverMenuTexture, backButton, backButtonActive, playButton, playButtonActive);
-            
+            youWinMenu = new YouWinMenu(youWinMenuTexture, backButton, backButtonActive);
+
             base.Initialize();
         }
 
@@ -177,10 +184,10 @@ namespace SpringandeGris
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
+            lvl1 = new Level1(snowGroundTexture, snowTexture, rainTexture ,player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
 
             effect = Content.Load<SoundEffect>("JUMP");
-            
+            eatingMunk = Content.Load<SoundEffect>("The Heavy eating his Sandvich");
 
           
           
@@ -217,10 +224,10 @@ namespace SpringandeGris
             #region Allt i test level och player
             {
                 IsMouseVisible = false;
-                gamestates = lvl1.Update(gameTime, player, effect);
+                gamestates = lvl1.Update(gameTime, player, effect, eatingMunk);
 
                 camera.Update(player.position);
-                lvl1.Update(gameTime, player, effect);
+                lvl1.Update(gameTime, player, effect, eatingMunk);
             }
             #endregion
 
@@ -257,14 +264,10 @@ namespace SpringandeGris
 
                 if (gamestates == Gamestates.startmenu)
                 {
-<<<<<<< HEAD
-                    lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
-=======
                     //Nollställer lvl1 när man lämnar spelet.
-                    lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
+                    lvl1 = new Level1(snowGroundTexture, snowTexture, rainTexture, player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
 
                     //Nollställer
->>>>>>> 97348797a00f7a208e4ce2e351492e2b2ae2d875
                     player = new Player(playerSprite, playerSprite, healthTexture);
                 }
             }
@@ -281,20 +284,27 @@ namespace SpringandeGris
             //Updaterar gameover menyn
             if (gamestates == Gamestates.gameOverMenu)
             {
-<<<<<<< HEAD
-                lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
-=======
+
                 //Nollställertt lvl1 när man har förlorat.
-                lvl1 = new Level1(player, groundBlockTexture, damagesprite, munkSprite, grenSprite);
+                lvl1 = new Level1(snowGroundTexture, snowTexture, rainTexture, player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
 
                 //Nollställer playern när man har förlorat. 
->>>>>>> 97348797a00f7a208e4ce2e351492e2b2ae2d875
                 player = new Player(playerSprite, playerSprite, healthTexture);
 
                 IsMouseVisible = true;
                 gamestates = gameOverMenu.Update(player);
             }
 
+            if (gamestates == Gamestates.youWinMenu)
+            {
+                IsMouseVisible = true;
+                gamestates = youWinMenu.Update();
+                //Nollställer lvl1 när man lämnar spelet.
+                lvl1 = new Level1(snowGroundTexture, snowTexture, rainTexture, player, groundBlockTexture, damagesprite, munkSprite, grenSprite, flyingsprite);
+
+                //Nollställer
+                player = new Player(playerSprite, playerSprite, healthTexture);
+            }
             // TODO: Add your update logic here
             base.Update(gameTime);
         }
@@ -322,7 +332,7 @@ namespace SpringandeGris
             if (gamestates == Gamestates.levelmenu)
             {
                 spriteBatch.Begin();
-                levelMenu.Draw(spriteBatch);
+                levelMenu.Draw(spriteBatch, comicSansFont);
                 spriteBatch.End();
             }
 
@@ -331,7 +341,7 @@ namespace SpringandeGris
             if (gamestates == Gamestates.shopmenu)
             {
                 spriteBatch.Begin();
-                shopmenu.Draw(spriteBatch, buyJump);
+                shopmenu.Draw(spriteBatch, comicSansFont);
                 spriteBatch.End();
             }
 
@@ -371,6 +381,14 @@ namespace SpringandeGris
             {
                 spriteBatch.Begin();
                 gameOverMenu.Draw(spriteBatch);
+                spriteBatch.End();
+            }
+
+            //Ritar ut youwinmenyn
+            if(gamestates == Gamestates.youWinMenu)
+            {
+                spriteBatch.Begin();
+                youWinMenu.Draw(spriteBatch);   
                 spriteBatch.End();
             }
             #endregion

@@ -50,12 +50,12 @@ namespace SpringandeGris
 
                     #region Gamstates ändring för musanvändning
                     //Nedan ändras på  gamestates beroende på vilken knapp man tycker på.
-                    if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton)
                     {
                         return Gamestates.startmenu;
                     }
 
-                    if (buttonLista[1].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    if (buttonLista[1].MouseOnButton() == ButtonLook.clickingButton)
                     {
                         return Gamestates.levelmenu;
                     }
@@ -70,45 +70,16 @@ namespace SpringandeGris
 
             // Nedan är det som gör så att du kan välja knapp med piltangenter.
             #region Piltangent funktionaliteten
-            if (FirtButtonActive() == true)
-            {
-                valdKnapp++;
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-            }
-
-            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.up && valdKnapp >= 0)
-            {
-                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
-                valdKnapp--;
-
-                if (valdKnapp == -1)
-                    valdKnapp++;
-
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-            }
-
-            //
-            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.down && valdKnapp <= 2 && gammalValdKnapp != -1)
-            {
-                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
-                valdKnapp++;
-
-                if (valdKnapp == 0)
-                    valdKnapp--;
-
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-            }
-
-            lastButtonState = nowButtonState;
+            usingKeys(2);
 
             //Nedan ändras gamestates beroende på vilken knapp man "aktiverar". 
             #region Gamestate retunering
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0)
             {
                 return Gamestates.startmenu;
             }
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 2)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
             {
                 return Gamestates.levelmenu;
             }

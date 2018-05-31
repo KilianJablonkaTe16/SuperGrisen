@@ -167,3 +167,18 @@ C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\obj\x86\Debu
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\obj\x86\Debug\SpringandeGris.exe
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\obj\x86\Debug\SpringandeGris.pdb
 C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\coins.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\playButton_pressed.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\wining_screen.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\The Heavy eating his Sandvich.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\level1_Button.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\level1_button_active.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\level2_button.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\level2_button_active.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\level3_button.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\level4_button.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\level4_button_active.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\level3_button_active.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\rain.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\big_snowflake.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\big_snowflake2.xnb
+C:\Users\kilian.jablonka\Documents\GitHub\SuperGrissen_nya_vesionen\bin\Windows\x86\Debug\Content\snwo_groundblock.xnb

@@ -56,6 +56,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DownFall.cs" />
     <Compile Include="Gren.cs" />
     <Compile Include="Menyer\GameOverMenu.cs" />
     <Compile Include="Level1.cs" />
@@ -75,6 +76,9 @@
     <Compile Include="Menyer\Startmenu.cs" />
     <Compile Include="Menyer\Buttons\SuperButtons.cs" />
     <Compile Include="Menyer\SuperMenu.cs" />
+    <Compile Include="Rain.cs" />
+    <Compile Include="Snow.cs" />
+    <Compile Include="YouWinMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

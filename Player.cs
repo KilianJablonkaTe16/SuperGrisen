@@ -25,6 +25,7 @@ namespace SpringandeGris
        public int timer;
        public int munkar = 100;
        int xPosition = 0;
+       public bool hasEatenAMunk = false;
 
 
 
@@ -59,17 +60,19 @@ namespace SpringandeGris
         }
 
 
-        public void Update(GameTime gametime, SoundEffect effect)
+        public void Update(GameTime gametime, SoundEffect effect, SoundEffect eatingMunk)
         {
 
             if(position.Y >= 1400)
             {
-
                 health = 0;
             }
 
-
-
+            if(hasEatenAMunk == true)
+            {
+                hasEatenAMunk = false;
+                eatingMunk.Play();
+            }
 
             if (timer <= 0)
             {
@@ -120,7 +123,8 @@ namespace SpringandeGris
                     whichTexture = crouchTexture;
                     harhoppat = true;
                 }
-                else
+
+            else
             {
                 
                 whichTexture = texture;

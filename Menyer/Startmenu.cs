@@ -15,7 +15,7 @@ namespace SpringandeGris
         public Startmenu(Texture2D startmenu, Texture2D playButton, Texture2D playButtonActive, Texture2D shopButton, Texture2D shopButtonActive, Texture2D exitButton, Texture2D exitButtonActive)
         {
             //Här skapas knapparna som finns i startmenyn.
-            buttonLista.Add(new SuperButtons(playButton, playButtonActive, new Vector2(50, 100)));
+            buttonLista.Add(new SuperButtons(playButton, playButtonActive,  new Vector2(50, 100)));
             buttonLista.Add(new SuperButtons(shopButton, shopButtonActive, new Vector2(50, 250)));
             buttonLista.Add(new SuperButtons(exitButton, exitButtonActive, new Vector2(50, 400)));
 
@@ -83,46 +83,8 @@ namespace SpringandeGris
             // Nedan är det som gör så att du kan välja knapp med piltangenter.
             #region Piltangent funktionaliteten
 
-            //Här används en metod i if-satsen som jag förklarar i SuperMenu
-            //Det if-satsen gör är att den markerar den första knappen när man vill använda piltangenterna.
-            if (FirtButtonActive() == true)
-            {
-                valdKnapp++;
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-                buttonLista[1].Update(ButtonLook.normalButton);
-                buttonLista[2].Update(ButtonLook.normalButton);
-            }
-
-            //Denna if-sats gör så att man kan markera en kanpp med piltangenterna över den som är 
-            //markerad om det finns en knapp över den.
-            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.up && valdKnapp >= 0)
-            {
-                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
-                valdKnapp--;
-
-                //If-satsen gör så att man inte kan markera en knapp som inte finns.
-                if (valdKnapp == -1)
-                    valdKnapp++;
-
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-            }
-
-
-            //Denna if-sats gör så att man kan markera en kanpp med piltangenterna under den som är 
-            //markerad om det finns en knapp under den.
-            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.down && valdKnapp <= 2 && gammalValdKnapp != -1)
-            {
-                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
-                valdKnapp++;
-
-                //If-satsen gör så att man inte kan markera en knapp som inte finns.
-                if (valdKnapp == 3)
-                    valdKnapp--;
-
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-            }
-
-            lastButtonState = nowButtonState;
+            //Vad metoden gör beskrivs i SuperMenu klassen.
+            usingKeys(3);
 
             //Nedan ändras gamestates beroende på vilken knapp man "aktiverar".
 
@@ -133,7 +95,8 @@ namespace SpringandeGris
             //och man har tryckt på enter så går man in i levelmenyn.
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0)
             {
-                ResetingButtos();
+                ResetingButtos(buttonLista.Count);
+                lastButtonState = nowButtonState;
                 return Gamestates.levelmenu;
             }
 
@@ -142,7 +105,8 @@ namespace SpringandeGris
             //och man har tryckt på enter så går man in i shopmenyn.
             else if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
             {
-                ResetingButtos();
+                ResetingButtos(buttonLista.Count);
+                lastButtonState = nowButtonState;
                 return Gamestates.shopmenu;
             }
 
@@ -159,6 +123,7 @@ namespace SpringandeGris
             // när man har markerat den med piltangenterna så stanar man i startscrennen. 
             else
             {
+                lastButtonState = nowButtonState;
                 return Gamestates.startmenu;
             }
             #endregion

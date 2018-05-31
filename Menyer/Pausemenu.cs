@@ -70,33 +70,8 @@ namespace SpringandeGris
             }
 
 
-
-            // Markerar första knappen när man kommer in i pausskärmen. 
-            if (Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Down) && valdKnapp == -1 && gammalValdKnapp == -1)
-            {
-                valdKnapp = 0;
-                buttonLista[0].Update(ButtonLook.lookingButton);
-                buttonLista[1].Update(ButtonLook.normalButton);
-            }
-
-            //Gör så att man markerar den första/övre knappen när man trycker på up tangenten.
-            if (Keyboard.GetState().IsKeyDown(Keys.Up) && valdKnapp == 1 && lastButtonState != nowButtonState)
-            {
-                valdKnapp = 0;
-                buttonLista[0].Update(ButtonLook.lookingButton);
-                buttonLista[1].Update(ButtonLook.normalButton);
-            }
-
-            //Gör så att man markerar den andra/undre knappen när man trycker på ner tangenten.
-            if (Keyboard.GetState().IsKeyDown(Keys.Down) && valdKnapp == 0 && gammalValdKnapp != -1 && lastButtonState != nowButtonState)
-            {
-                valdKnapp = 1;
-                buttonLista[1].Update(ButtonLook.lookingButton);
-                buttonLista[0].Update(ButtonLook.normalButton);
-            }
-
-            lastButtonState = nowButtonState;
-
+            usingKeys(2);
+           
             //När den första/övre knappen är markerad och man trycker på enter går man till startmenyn och lämnar spelet.
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0)
             {

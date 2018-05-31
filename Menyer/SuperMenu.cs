@@ -18,7 +18,7 @@ namespace SpringandeGris
         protected Texture2D menuTexture;
         protected KeyboardState nowButtonState, lastButtonState;
         protected MouseState nowMouseState, lastMouseState;
-        protected SpriteFont buyJump;
+        protected SpriteFont comicSansFont;
 
         protected bool keysUsed = false;
         protected int valdKnapp = -1, gammalValdKnapp = -1;
@@ -80,16 +80,62 @@ namespace SpringandeGris
 
         }
 
+        protected void usingKeys(int amountButtons)
+        {
+            //Här används en metod i if-satsen som jag förklarar i SuperMenu
+            //Det if-satsen gör är att den markerar den första knappen när man vill använda piltangenterna.
+            if (FirtButtonActive() == true)
+            {
+                valdKnapp++;
+                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
+
+                for (int i = 1; i < amountButtons; i++)
+                {
+                    buttonLista[i].Update(ButtonLook.normalButton);
+                }
+            }
+
+            //Denna if-sats gör så att man kan markera en kanpp med piltangenterna över den som är 
+            //markerad om det finns en knapp över den.
+            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.up && valdKnapp >= 0)
+            {
+                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
+                valdKnapp--;
+
+                //If-satsen gör så att man inte kan markera en knapp som inte finns.
+                if (valdKnapp == -1)
+                    valdKnapp++;
+
+                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
+            }
+
+
+            //Denna if-sats gör så att man kan markera en kanpp med piltangenterna under den som är 
+            //markerad om det finns en knapp under den.
+            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.down && valdKnapp <= amountButtons && gammalValdKnapp != -1)
+            {
+                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
+                valdKnapp++;
+
+                //If-satsen gör så att man inte kan markera en knapp som inte finns.
+                if (valdKnapp == amountButtons)
+                    valdKnapp--;
+
+                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
+            }
+        }
 
         //En metod som "nollställer" alla knapparnas texture
         //och resetar knapp värdet på vald och gammalknapp. 
-        protected void ResetingButtos()
+        protected void ResetingButtos(int howManyButtons)
         {
             valdKnapp = -1;
             gammalValdKnapp = -1;
-            buttonLista[0].Update(ButtonLook.normalButton);
-            buttonLista[1].Update(ButtonLook.normalButton);
-            buttonLista[2].Update(ButtonLook.normalButton);
+
+            for (int i = 0; i < howManyButtons; i++)
+            {
+                buttonLista[i].Update(ButtonLook.normalButton);
+            }
         }
 
 
@@ -114,5 +160,22 @@ namespace SpringandeGris
                 return false;
         }
 
+        bool enterReleased = false;
+        protected bool EnterPressed()
+        {
+            if (Keyboard.GetState().IsKeyUp(Keys.Enter))
+            {
+                enterReleased = true;
+            }
+               
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && enterReleased == true)
+                {
+                    enterReleased = false;
+                    return true;
+                }
+
+            else
+                return false;
+        }
     }
 }

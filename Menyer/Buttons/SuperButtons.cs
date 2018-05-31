@@ -9,23 +9,24 @@ using Microsoft.Xna.Framework.Input;
 
 namespace SpringandeGris
 {
-    enum ButtonLook { normalButton, lookingButton, clickingButton}
+    enum ButtonLook { normalButton, lookingButton, clickingButton, releasedButton}
 
     //Allt i denna klass gjordes av Kilian
 
 
     class SuperButtons
     {
-        protected Texture2D normalButtonTexture, whichButtonTexture, lookingButtonTexture;
+        protected Texture2D normalButtonTexture, whichButtonTexture, HoverButtonTexture;
         protected Vector2 buttonPotisiton;
-        public MouseState nowMousestate, lastmousestate;
+        public MouseState nowMousestate, lastMousestate;
         public ButtonLook mouseButtonLook = new ButtonLook();
         protected string keyButtonLook = "";
+        protected bool wasButtomPressed = false;
 
-        public SuperButtons(Texture2D normalButtonTexture, Texture2D lookingButtonTexture, Vector2 position)
+        public SuperButtons(Texture2D normalButtonTexture, Texture2D HoverButtonTexture, Vector2 position)
         {
             this.normalButtonTexture = normalButtonTexture;
-            this.lookingButtonTexture = lookingButtonTexture;
+            this.HoverButtonTexture = HoverButtonTexture;
             whichButtonTexture = normalButtonTexture;
             buttonPotisiton = position;
             mouseButtonLook = ButtonLook.normalButton;
@@ -72,15 +73,32 @@ namespace SpringandeGris
             {
                 mouseButtonLook = ButtonLook.lookingButton;
 
-                if (mouseButtonLook == ButtonLook.lookingButton && nowMousestate.LeftButton == ButtonState.Pressed && nowMousestate.LeftButton != lastmousestate.LeftButton)
+                if (mouseButtonLook == ButtonLook.lookingButton && nowMousestate.LeftButton == ButtonState.Pressed)
                 {
+                    lastMousestate = nowMousestate;
+                    wasButtomPressed = true;
                     return ButtonLook.clickingButton;
                 }
-                lastmousestate = nowMousestate;
-                return ButtonLook.lookingButton;
+
+                if(wasButtomPressed == true && lastMousestate.LeftButton == ButtonState.Released)
+                {
+                    lastMousestate = nowMousestate;
+                    wasButtomPressed = false;
+                    return ButtonLook.releasedButton;
+                }
+
+                else
+                {
+                    lastMousestate = nowMousestate;
+                    return ButtonLook.lookingButton;
+                }                
             }
-            lastmousestate = nowMousestate;
-            return ButtonLook.normalButton;
+
+            else
+            {
+                lastMousestate = nowMousestate;
+                return ButtonLook.normalButton;
+            }
         }
 
         public void Update(ButtonLook thisButtonInFocus)
@@ -89,7 +107,7 @@ namespace SpringandeGris
 
             if (mouseButtonLook == ButtonLook.lookingButton)
             {
-                whichButtonTexture = lookingButtonTexture;
+                whichButtonTexture = HoverButtonTexture;
             }
 
             else

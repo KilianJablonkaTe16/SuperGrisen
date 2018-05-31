@@ -57,7 +57,7 @@ namespace SpringandeGris
                     // Vad metoden gör beskrivs i SuperMenus klassen.
                     ButtonListForloop();
 
-                    if (buttonLista[1].MouseOnButton() == ButtonLook.clickingButton)
+                    if (buttonLista[1].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
                         return Gamestates.startmenu;
                     }
@@ -80,41 +80,13 @@ namespace SpringandeGris
                 }
             }
 
-
-            if (FirtButtonActive() == true)
-            {
-                valdKnapp++;
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-                buttonLista[1].Update(ButtonLook.normalButton);
-            }
-
-            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.up && valdKnapp >= 0)
-            {
-                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
-                valdKnapp--;
-
-                if (valdKnapp == -1)
-                    valdKnapp++;
-
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-            }
-
-            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.down && valdKnapp <= 2 && gammalValdKnapp != -1)
-            {
-                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
-                valdKnapp++;
-
-                if (valdKnapp == 2)
-                    valdKnapp--;
-
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-            }
+            usingKeys(2);
 
             //If-satsen gör så att man inte kan köpa något mer när man inte har liräkligt med munkar.
             if(shopMunkar >= 50)
             {
                 //If-satsen gör så att man köper ett till liv när man tycker på "köp" knappen i shopmenyn.
-                if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0 && lastButtonState != nowButtonState)
+                if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0 && nowButtonState != lastButtonState)
                 {
                     player.health++;
                     player.munkar -= 50;
@@ -125,9 +97,9 @@ namespace SpringandeGris
             }
             // Nedan ändras gamstatsen beroende på vilken knapp man "aktiverar"
             #region Gamestates retunering
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1 && lastButtonState != nowButtonState)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
             {
-                ResetingButtos();
+                ResetingButtos(buttonLista.Count);
                 return Gamestates.startmenu;
             } 
             
@@ -140,7 +112,7 @@ namespace SpringandeGris
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, SpriteFont buyJump)
+        public void Draw(SpriteBatch spriteBatch, SpriteFont comicSansFont)
         {
             spriteBatch.Draw(menuTexture, Vector2.Zero, Color.White);
 
@@ -150,10 +122,10 @@ namespace SpringandeGris
             }
 
             //Skriver ut hur många munkar man har.
-            spriteBatch.DrawString(buyJump, "Munkar: " + shopMunkar.ToString(), new Vector2(500, 200), Color.White);
+            spriteBatch.DrawString(comicSansFont, "Munkar: " + shopMunkar.ToString(), new Vector2(500, 200), Color.White);
 
             //Skriver ut hur många liv man har.
-            spriteBatch.DrawString(buyJump, "Health: " + upgradeHealth.ToString(), new Vector2(500, 320), Color.White);
+            spriteBatch.DrawString(comicSansFont, "Health: " + upgradeHealth.ToString(), new Vector2(500, 320), Color.White);
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace SpringandeGris
         public MunkarPoäng(Texture2D texture, Vector2 position) : base(texture)
         {
             this.texture = texture;
-            this.position = position;
+            this.position = position; 
 
         }
 
@@ -25,6 +26,7 @@ namespace SpringandeGris
             {
                 player.munkar++;
                 removeMe = true;
+                player.hasEatenAMunk = true;
             }
         }
 

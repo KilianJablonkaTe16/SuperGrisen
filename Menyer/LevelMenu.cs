@@ -18,7 +18,10 @@ namespace SpringandeGris
 
     class LevelMenu :SuperMenu
     {
-        public LevelMenu(Texture2D playButton, Texture2D playButtonActive, Texture2D levelmenyBackground,Texture2D levelOneTexture, Texture2D levelOneTextureActive, Texture2D backButton, Texture2D backButtonActive, Texture2D easyButton, Texture2D easyButtonActive, Texture2D normalButton, Texture2D normalButtonActive, Texture2D hardButton, Texture2D hardButtonActive, Texture2D sonicButton, Texture2D sonicButtonActive)
+        private bool button1Pressed = false, button2Pressed = false;
+        private string whichLevel, whichDifficulty;
+
+        public LevelMenu(Texture2D playButton, Texture2D playButtonActive, Texture2D levelmenyBackground, Texture2D level1Texture, Texture2D level1TextureHover, Texture2D level2Texture, Texture2D level2TextureHover, Texture2D level3Texture, Texture2D level3TextureHover, Texture2D level4Texture, Texture2D level4TextureHover, Texture2D backButton, Texture2D backButtonActive, Texture2D easyButton, Texture2D easyButtonActive, Texture2D normalButton, Texture2D normalButtonActive, Texture2D hardButton, Texture2D hardButtonActive, Texture2D sonicButton, Texture2D sonicButtonActive)
         {
             buttonLista.Add(new SuperButtons(playButton, playButtonActive, new Vector2(50, 200)));
 
@@ -29,10 +32,10 @@ namespace SpringandeGris
 
             buttonLista.Add(new SuperButtons(backButton, backButtonActive, new Vector2(50, 950)));
 
-            buttonLista.Add(new SuperButtons(levelOneTexture, levelOneTextureActive, new Vector2(500, 20)));
-            buttonLista.Add(new SuperButtons(levelOneTexture, levelOneTextureActive, new Vector2(1200, 20)));
-            buttonLista.Add(new SuperButtons(levelOneTexture, levelOneTextureActive, new Vector2(500, 580)));
-            buttonLista.Add(new SuperButtons(levelOneTexture, levelOneTextureActive, new Vector2(1200, 580)));
+            buttonLista.Add(new SuperButtons(level1Texture, level1TextureHover, new Vector2(500, 20)));
+            buttonLista.Add(new SuperButtons(level2Texture, level2TextureHover, new Vector2(500, 580)));
+            buttonLista.Add(new SuperButtons(level3Texture, level3TextureHover, new Vector2(1200, 20)));
+            buttonLista.Add(new SuperButtons(level4Texture, level4TextureHover, new Vector2(1200, 580)));
 
             menuTexture = levelmenyBackground;
         }
@@ -42,7 +45,7 @@ namespace SpringandeGris
             // Vad metoden gör beskirvs i SuperMenus.
             GettingNewValues();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Down) || Keyboard.GetState().IsKeyDown(Keys.Up))
+            if (Keyboard.GetState().IsKeyDown(Keys.Down) || Keyboard.GetState().IsKeyDown(Keys.Up) || Keyboard.GetState().IsKeyDown(Keys.Left) || Keyboard.GetState().IsKeyDown(Keys.Right))
             {
                 keysUsed = true;
             }
@@ -65,8 +68,9 @@ namespace SpringandeGris
                     //Nedan ändra på  gamestates beroende på wilken knapp man tycker på.
 
                     //If-satsen statar spelet när man trycker på Play knappen.
-                    if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    if (buttonLista[0].MouseOnButton() == ButtonLook.clickingButton && button1Pressed == true && button2Pressed == true)
                     {
+                        ResetingLevelMenu();
                         return Gamestates.inGame;
                     }
 
@@ -76,6 +80,8 @@ namespace SpringandeGris
                         player.velocity.X = 4;
                         player.jumpHeight = -18;
                         player.gravity.Y = 0.4f;
+                        button1Pressed = true;
+                        whichDifficulty = "Easy";
                     }
 
                     //If-satsen gör ställer in spelet på den lagomsvåra svårighetsgraden när man trycker på Normal knappen.
@@ -84,6 +90,8 @@ namespace SpringandeGris
                         player.velocity.X = 8;
                         player.jumpHeight = -21;
                         player.gravity.Y = 0.6f;
+                        button1Pressed = true;
+                        whichDifficulty = "Normal";
                     }
 
                     //If-satsen gör ställer in spelet på den svåra svårighetsgraden när man trycker på Hard knappen.
@@ -92,6 +100,8 @@ namespace SpringandeGris
                         player.velocity.X = 16;
                         player.jumpHeight = -24;
                         player.gravity.Y = 0.8f;
+                        button1Pressed = true;
+                        whichDifficulty = "Hard";
                     }
 
                     //If-satsen gör ställer in spelet på den svåraste svårighetsgraden när man trycker på Sonic? knappen.
@@ -100,11 +110,38 @@ namespace SpringandeGris
                         player.velocity.X = 32;
                         player.jumpHeight = -28;
                         player.gravity.Y = 1f;
+                        button1Pressed = true;
+                        whichDifficulty = "Sonic?";
                     }
 
                     if (buttonLista[5].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
                     {
+                        ResetingLevelMenu();
                         return Gamestates.startmenu;
+                    }
+
+                    if (buttonLista[6].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    {
+                        button2Pressed = true;
+                        whichLevel = "Level 1";
+                    }
+
+                    if (buttonLista[7].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    {
+                        button2Pressed = true;
+                        whichLevel = "Level 2";
+                    }
+
+                    if (buttonLista[8].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    {
+                        button2Pressed = true;
+                        whichLevel = "Level 3";
+                    }
+
+                    if (buttonLista[9].MouseOnButton() == ButtonLook.clickingButton && lastMouseState.LeftButton != ButtonState.Pressed)
+                    {
+                        button2Pressed = true;
+                        whichLevel = "Level 4";
                     }
 
                     lastMouseState = nowMouseState;
@@ -118,44 +155,37 @@ namespace SpringandeGris
             // Nedan är det som gör så att du kan välja knapp med piltangenter.
             #region Piltangent funktionaliteten
 
-            if (FirtButtonActive() == true)
+            usingKeys(10);
+                
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Left) && valdKnapp >= 6)
             {
-                valdKnapp++;
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
+                ResetingButtos(10);
+                valdKnapp = 0;
+                buttonLista[0].Update(ButtonLook.lookingButton);
             }
 
-            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.up && valdKnapp >= 0)
+            if (Keyboard.GetState().IsKeyDown(Keys.Right) && valdKnapp < 6)
             {
-                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
-                valdKnapp--;
-
-                if (valdKnapp == -1)
-                    valdKnapp++;
-
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
+                ResetingButtos(10);
+                valdKnapp = 6;
+                buttonLista[6].Update(ButtonLook.lookingButton);
             }
-
-            if (ClickCombo(nowButtonState, lastButtonState) == ClickCombos.down && valdKnapp <= 5 && gammalValdKnapp != -1)
-            {
-                buttonLista[valdKnapp].Update(ButtonLook.normalButton);
-                valdKnapp++;
-
-                if (valdKnapp == 6)
-                    valdKnapp--;
-
-                buttonLista[valdKnapp].Update(ButtonLook.lookingButton);
-            }
-
             lastButtonState = nowButtonState;
 
             //Nedan ändras gamestates beroende på vilken knapp man "aktiverar". 
             #region Gamestate retunering
 
             //If-satsen gör så att man startar spelet när man trycker på Play knappen.
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0)
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 0 && button1Pressed == true && button2Pressed == true)
             {
+                button1Pressed = false;
+                button2Pressed = false;
+                whichDifficulty = "";
+                whichLevel = "";
                 return Gamestates.inGame;
             }
+
 
             //If-satsen gör ställer in spelet på den lättaste svårighetsgraden när man trycker på Easy knappen.
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 1)
@@ -163,6 +193,8 @@ namespace SpringandeGris
                 player.velocity.X = 4;
                 player.jumpHeight = -18;
                 player.gravity.Y = 0.4f;
+                button1Pressed = true;
+                whichDifficulty = "Easy";
             }
 
             //If-satsen gör ställer in spelet på den lagomsvåra svårighetsgraden när man trycker på Normal knappen.
@@ -171,6 +203,8 @@ namespace SpringandeGris
                 player.velocity.X = 8;
                 player.jumpHeight = -21;
                 player.gravity.Y = 0.6f;
+                button1Pressed = true;
+                whichDifficulty = "Normal";
             }
 
             //If-satsen gör ställer in spelet på den svåra svårighetsgraden när man trycker på Hard knappen.
@@ -179,6 +213,8 @@ namespace SpringandeGris
                 player.velocity.X = 16;
                 player.jumpHeight = -24;
                 player.gravity.Y = 0.8f;
+                button1Pressed = true;
+                whichDifficulty = "Hard";
             }
 
             //If-satsen gör ställer in spelet på den svåraste svårighetsgraden när man trycker på Sonic? knappen.
@@ -187,11 +223,38 @@ namespace SpringandeGris
                 player.velocity.X = 32;
                 player.jumpHeight = -28;
                 player.gravity.Y = 1f;
+                button1Pressed = true;
+                whichDifficulty = "Sonic?";
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 6)
+            {
+                button2Pressed = true;
+                whichLevel = "Level 1";
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 7)
+            {
+                button2Pressed = true;
+                whichLevel = "Level 2";
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 8)
+            {
+                button2Pressed = true;
+                whichLevel = "Level 3";
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 9)
+            {
+                button2Pressed = true;
+                whichLevel = "Level 4";
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && valdKnapp == 5)
             {
-                ResetingLevelMenuButtons();
+                ResetingButtos(buttonLista.Count);
+                ResetingLevelMenu();
                 return Gamestates.startmenu;
             }
             #endregion
@@ -202,17 +265,29 @@ namespace SpringandeGris
 
         }
 
-        // En metod som resetar texturen av alla knappar och gör lite till.
-        protected void ResetingLevelMenuButtons()
+        public void Draw(SpriteBatch spriteBatch, SpriteFont comicSansFont)
         {
-            valdKnapp = -1;
-            gammalValdKnapp = -1;
-            buttonLista[0].Update(ButtonLook.normalButton);
-            buttonLista[1].Update(ButtonLook.normalButton);
-            buttonLista[2].Update(ButtonLook.normalButton);
-            buttonLista[3].Update(ButtonLook.normalButton);
-            buttonLista[4].Update(ButtonLook.normalButton);
-            buttonLista[5].Update(ButtonLook.normalButton);
+            spriteBatch.Draw(menuTexture, Vector2.Zero, Color.White);
+
+            foreach (SuperButtons pauseButton in buttonLista)
+            {
+                pauseButton.Draw(spriteBatch);
+            }
+
+            //Skriver ut hur många munkar man har.
+            spriteBatch.DrawString(comicSansFont, "Difficulty: " + whichDifficulty, new Vector2(25, 20), Color.White);
+
+            //Skriver ut hur många liv man har.
+            spriteBatch.DrawString(comicSansFont, "Level: " + whichLevel, new Vector2(25, 100), Color.White);
+        }
+
+        // En metod som resetar texturen av alla knappar och gör lite till.
+        protected void ResetingLevelMenu()
+        {
+            whichDifficulty = "";
+            whichLevel = "";
+            button1Pressed = false;
+            button2Pressed = false;
         }
     }
 }
