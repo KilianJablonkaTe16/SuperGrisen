@@ -277,7 +277,7 @@ namespace SpringandeGris
             //Skriver ut hur många munkar man har.
             spriteBatch.DrawString(comicSansFont, "Difficulty: " + whichDifficulty, new Vector2(25, 20), Color.White);
 
-            //Skriver ut hur många liv man har.
+            //Skriver ut hur 
             spriteBatch.DrawString(comicSansFont, "Level: " + whichLevel, new Vector2(25, 100), Color.White);
         }
 

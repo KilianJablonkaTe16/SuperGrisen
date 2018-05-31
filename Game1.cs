@@ -96,7 +96,7 @@ namespace SpringandeGris
             snowGroundTexture = Content.Load<Texture2D>("snwo_groundblock");
             damagesprite = Content.Load<Texture2D>("Mario_runing");
             background = Content.Load<Texture2D>("Forest-31");
-            munkSprite = Content.Load<Texture2D>("coins");
+            munkSprite = Content.Load<Texture2D>("sockerMunk_texture");
             backgroundWidth = background.Width;
             backgroundTest = new Vector2(0, 0);
 
